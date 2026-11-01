@@ -12,7 +12,7 @@ Thaynar trained and worked as a dietitian in Brazil. She wants to work as a diet
 ## Constraints
 - English is her second language; Portuguese hints help with new terms
 - Studying around work; short sessions (15-30 min) on phone or laptop
-- Key date: DSR application by 1 Dec 2026 to sit the March 2027 MCQ
+- Target: MCQ exam 8 Sep 2027 (DSR application deadline not yet announced; expect about early June 2027)
 
 ## Out of scope
 - Advanced specialist practice beyond entry-level (new graduate) competency

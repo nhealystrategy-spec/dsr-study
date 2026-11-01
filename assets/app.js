@@ -3,7 +3,7 @@ const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const DAY = 864e5;
-const APP_DEADLINE = new Date('2026-12-01T23:59:00+11:00');
+const EXAM_DATE = new Date('2027-09-08T09:00:00+10:00'); // target MCQ sitting
 const ORDER = [2,18,15,12,19,3,8,4,5,6,7,9,10,11,13,14,16,17,1]; // most "new for Brazil" first
 const TOPICS = SHEET_TOPICS.map(t => ({...t, ...LESSONS[t.id]}));
 const topic = id => TOPICS.find(t => t.id == id);
@@ -110,13 +110,13 @@ const V = {};
 V.home = () => {
   const comf = TOPICS.filter(t => status(t.id) === 'comfortable').length;
   const {due, fresh} = dueCards();
-  const days = Math.ceil((APP_DEADLINE - Date.now()) / DAY);
+  const days = Math.ceil((EXAM_DATE - Date.now()) / DAY);
   const att = Object.values(S.qs).reduce((a, r) => [a[0] + r.r, a[1] + r.r + r.w], [0, 0]);
   const best = S.exams.length ? Math.max(...S.exams.map(e => Math.round(100 * e.score / e.n))) : null;
   const next = ORDER.map(topic).find(t => status(t.id) !== 'comfortable');
   return `<h1>Olá Thaynar 👋</h1>
   <p class="lede">Your path to working as a dietitian in Australia. Each study area has a short lesson, recall cards and practice questions in the real exam formats. Tap any <abbr class="pt" data-pt="palavra sublinhada">underlined word</abbr> to see it in Portuguese.</p>
-  ${days > 0 ? `<div class="alert"><b>${days} days</b> until 1 December 2026, the deadline to submit your DSR application if you want to sit the <b>March 2027</b> MCQ exam. Complete the Cultural Awareness assessment first. <a href="https://dietitiansaustralia.org.au/working-dietetics/skills-recognition-australia/process-overseas-educated-dietitians/exam-dates-and-details" target="_blank" rel="noopener">Exam dates ↗</a></div>` : ''}
+  ${days > 0 ? `<div class="alert"><b>${days} days</b> until your target MCQ exam on <b>8 September 2027</b>. DA has not announced its deadlines yet. For the March sitting the DSR assessment was due about 3 months before, so plan to have your application in by <b>early June 2027</b>, with the Cultural Awareness assessment done first. <a href="https://dietitiansaustralia.org.au/working-dietetics/skills-recognition-australia/process-overseas-educated-dietitians/exam-dates-and-details" target="_blank" rel="noopener">Exam dates ↗</a></div>` : ''}
   <div class="stats">
     <div class="stat"><b>${comf}/19</b><span class="muted small">areas comfortable</span></div>
     <div class="stat"><b>${due.length + fresh.length}</b><span class="muted small">cards to review today</span></div>
