@@ -7,7 +7,7 @@ An interactive course for Thaynar's Dietitians Australia DSR exams, with Portugu
 - **Progress** (modules, points, streaks, cards) saves in the browser on each device. Clearing browser data resets it.
 
 ## How the course works
-19 modules, one per study area. Each module plays one full-screen page at a time: pages with highlighted key facts and exercises, quick-check questions after every couple of pages, a module quiz, a mini review (key points + questions to revisit), flip cards, then a finish screen. Points, levels, a daily streak, badges and confetti keep it fun. Language switch: English (tap underlined words for Portuguese) or Português (tap terms for the English exam word).
+19 modules, one per study area. Each module plays one full-screen page at a time: pages with highlighted key facts and exercises, quick-check questions after every couple of pages, a module quiz, a mini review (key points + questions to revisit), flip cards, then a finish screen. Points, levels, a daily streak, badges and confetti keep it fun. The 🔊 button reads each page aloud (browser voices, Australian English or Brazilian Portuguese), highlighting the part being read; the speed button slows it to 0.85× or 0.7×. Language switch: English (tap underlined words for Portuguese) or Português (tap terms for the English exam word).
 
 ## Where things live
 - `assets/modules/kit.js`: authoring helpers (`P`, `UL`, `TABLE`, `FLOW`, `NOTE`, `SORT`, `ORDER`, `NUM`, `PICK`, `REVEAL`). Text is always `[english, portuguese]`; `**term**` bolds, `==fact==` highlights, `{{palavra|English term}}` (Portuguese text only) shows the English term on tap.

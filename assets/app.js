@@ -53,6 +53,7 @@ Object.assign(PT_UI, {
   'Start': 'Começar', 'Continue': 'Continuar', 'Revisit': 'Rever', 'Start again': 'Começar de novo', 'Jump to the mini review': 'Ir para a mini revisão',
   'You will be able to': 'Você vai conseguir', 'In this module': 'Neste módulo', 'Module quiz and mini review': 'Quiz do módulo e mini revisão',
   'Coming soon': 'Em breve', 'Daily review': 'Revisão diária', 'Exam dates ↗': 'Datas das provas ↗',
+  'Read aloud': 'Ouvir a página', 'Stop': 'Parar', 'Reading speed': 'Velocidade da leitura',
   'Course complete!': 'Curso completo!', 'Take a full mock exam': 'Faça um simulado completo', 'Then revisit your weakest modules': 'Depois reveja seus módulos mais fracos'
 });
 const NOTE_LABEL = {exam: ['🎯 Exam tip', '🎯 Dica de prova'], br: ['🇧🇷 → 🇦🇺 Brazil vs Australia', '🇧🇷 → 🇦🇺 Brasil x Austrália'], warn: ['⚠️ Watch out', '⚠️ Atenção'],
@@ -303,7 +304,7 @@ function player(m, i){
   const html = `<div class="player area-${areaOf(m.id)}">
     <header class="ptop"><a class="px" href="#/m/${m.id}" aria-label="${T('Close')}">✕</a>
       <div class="ptitle"><span class="pmod">${T('Module')} ${m.id}</span><span class="pname">${mTitle(m.id)}</span></div>
-      <span class="pxp" title="XP">⭐ ${S.xp}</span>${langToggle()}</header>
+      <span class="pxp" title="XP">⭐ ${S.xp}</span>${canSpeak ? `<button class="speak" id="speak" aria-label="${T('Read aloud')}" title="${T('Read aloud')}">🔊</button><button class="rate" id="rate" title="${T('Reading speed')}">${S.rate || 1}×</button>` : ''}${langToggle()}</header>
     <div class="pbar" aria-hidden="true">${ss.map((x, k) => `<i class="${k < i ? 'done' : k === i ? 'on' : ''}${x.k === 'q' ? ' qs' : ''}"></i>`).join('')}</div>
     <article class="pcard" id="pcard">${stepHTML(m, st)}</article>
     <nav class="pnav" aria-label="Lesson"><button class="ghost" id="pback" ${i ? '' : 'disabled'}>← ${T('Back')}</button><span class="plabel">${stepLabel(m, st)}</span>
@@ -313,6 +314,10 @@ function player(m, i){
 function mountStep(m, st, i){
   const ms = mState(m.id), card = $('#pcard'), next = $('#pnext'), go = k => { location.hash = `#/m/${m.id}/${k}`; };
   $('#pback').onclick = () => i > 0 && go(i - 1);
+  if (canSpeak) {
+    $('#speak').onclick = speakPage;
+    $('#rate').onclick = e => { S.rate = RATES[(RATES.indexOf(S.rate || 1) + 1) % RATES.length]; save(); e.target.textContent = S.rate + '×'; };
+  }
   next.onclick = () => {
     if (next.disabled) return;
     if (st.k === 'page' && !S.seen[`${m.id}.${st.i}`]) { S.seen[`${m.id}.${st.i}`] = 1; award(10); badge('first'); }
@@ -657,9 +662,50 @@ V.glossary = () => {
   <table id="gt" class="nopt"><tr><th>English</th><th>Português</th><th>Note</th></tr>${GLOSSARY.map(g => `<tr data-k="${esc((g[0] + ' ' + g[1]).toLowerCase())}"><td><b>${esc(g[0])}</b></td><td lang="pt-BR">${esc(g[1])}</td><td class="small muted">${esc(g[2].replace(/^! /, '⚠ '))}</td></tr>`).join('')}</table>`;
 };
 
+// ---------- read aloud (the browser's own speech voices; nothing is sent anywhere) ----------
+const canSpeak = 'speechSynthesis' in window;
+const RATES = [1, 0.85, 0.7];
+const READ_SEL = 'h1, .pcard > p, .blist li, .note, .flow li, .btable tr, .keybox li, .sumsec h2, .sumsec li, .revisit, .wq, .case, .stem, .opt, .why:not([hidden]), .wans:not([hidden]), .front, .back:not([hidden]), .deeper > p';
+let speaking = false;
+function pickVoice(){
+  const vs = speechSynthesis.getVoices();
+  for (const want of isPT() ? ['pt-BR', 'pt'] : ['en-AU', 'en-GB', 'en']) { const v = vs.find(x => x.lang.replace('_', '-').startsWith(want)); if (v) return v; }
+}
+function updateSpeakBtn(){
+  const b = $('#speak'); if (!b) return;
+  b.textContent = speaking ? '⏹' : '🔊'; b.classList.toggle('on', speaking);
+  b.setAttribute('aria-label', T(speaking ? 'Stop' : 'Read aloud'));
+}
+function stopSpeaking(){
+  if (!canSpeak) return;
+  speaking = false; speechSynthesis.cancel();
+  $$('.reading').forEach(e => e.classList.remove('reading')); updateSpeakBtn();
+}
+function speakPage(){ // reads the page block by block and highlights the block being read
+  if (speaking) return stopSpeaking();
+  const blocks = $$(READ_SEL, $('#pcard')).filter(e => e.offsetParent !== null && e.innerText.trim());
+  if (!blocks.length) return;
+  const voice = pickVoice(); let k = 0;
+  if (!voice && isPT()) { toast('Sem voz em português neste aparelho. Use o Chrome, o Edge ou o celular.', 'big'); return; }
+  speechSynthesis.cancel(); speaking = true; updateSpeakBtn();
+  const next = () => {
+    $$('.reading').forEach(e => e.classList.remove('reading'));
+    if (!speaking || k >= blocks.length) return stopSpeaking();
+    const el = blocks[k++]; el.classList.add('reading'); el.scrollIntoView({block: 'center', behavior: 'smooth'});
+    const text = el.innerText.replace(/\p{Extended_Pictographic}|\p{Regional_Indicator}|[→✓✗↺▶️]/gu, ' ').replace(/[\t\n]+/g, ', ').replace(/\s+/g, ' ').trim();
+    if (!text) return next();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = isPT() ? 'pt-BR' : 'en-AU'; if (voice) u.voice = voice; u.rate = S.rate || 1;
+    u.onend = next; u.onerror = () => stopSpeaking();
+    speechSynthesis.speak(u);
+  };
+  next();
+}
+if (canSpeak) speechSynthesis.getVoices(); // starts loading the voice list early
+
 // ---------- router ----------
 function render(){
-  clearInterval(examTimer);
+  clearInterval(examTimer); stopSpeaking();
   const [, view = '', a, b] = location.hash.split('/');
   if (view === 'topic') { location.replace(`#/m/${a}`); return; }
   let out;
