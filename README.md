@@ -2,14 +2,19 @@
 
 An interactive course for Thaynar's Dietitians Australia DSR exams, with Portuguese support. Plain HTML/JS: no build step.
 
+- **Live:** https://nhealystrategy-spec.github.io/dsr-study/
 - **Open locally:** double-click `index.html`.
-- **Put it online:** drag this folder onto https://app.netlify.com/drop, or push it to a GitHub repo and turn on GitHub Pages.
-- **Progress** saves in the browser (per device). Clearing browser data resets it.
+- **Progress** (modules, points, streaks, cards) saves in the browser on each device. Clearing browser data resets it.
+
+## How the course works
+19 modules, one per study area. Each module plays one full-screen page at a time: pages with highlighted key facts and exercises, quick-check questions after every couple of pages, a module quiz, a mini review (key points + questions to revisit), flip cards, then a finish screen. Points, levels, a daily streak, badges and confetti keep it fun. Language switch: English (tap underlined words for Portuguese) or Português (tap terms for the English exam word).
 
 ## Where things live
-- `assets/topics-sheet.js`: the 19 areas and 102 links, generated from her original spreadsheet
-- `assets/lessons.js`: recall facts, Brazil→Australia tips, extra official resources
-- `assets/questions.js`: question bank (stand-alone, case-based, extended matching)
-- `assets/glossary.js`: English→Portuguese terms (auto-highlighted) and the Brazil curriculum map
-- `assets/oral.js`: oral exam tasks, checklists and role-play scenarios
-- `MISSION.md`, `NOTES.md`: `/teach` workspace files. Run `/teach` in this folder to keep extending the course.
+- `assets/modules/kit.js`: authoring helpers (`P`, `UL`, `TABLE`, `FLOW`, `NOTE`, `SORT`, `ORDER`, `NUM`, `PICK`, `REVEAL`). Text is always `[english, portuguese]`; `**term**` bolds, `==fact==` highlights, `{{palavra|English term}}` (Portuguese text only) shows the English term on tap.
+- `assets/modules/m01.js` … `m19.js`: module pages, exercises, quick-check placement (`checks`) and new questions (`qs`, which also join Practice and the mock exam).
+- `assets/questions.js` + `pt-questions.js`: the original 135-question bank (append-only: progress is stored by position).
+- `assets/lessons.js` + `pt-lessons.js`: flashcard facts per module (also used by daily review).
+- `assets/topics-sheet.js`: the 19 areas and 102 links from her original spreadsheet ("Go deeper" on each finish screen).
+- `assets/glossary.js`: English→Portuguese terms and the Brazil curriculum map. `assets/oral.js`: oral exam role plays.
+- `tools/check-modules.js`: run `node tools/check-modules.js` after any content edit. It checks translations, markup, exercise answers and question links.
+- `MISSION.md`, `NOTES.md`: `/teach` workspace files.
