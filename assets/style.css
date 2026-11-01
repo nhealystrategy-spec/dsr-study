@@ -81,3 +81,8 @@ abbr.pt{text-decoration:underline dotted #8fb9ad;text-underline-offset:3px;curso
 body.pt-show abbr.pt.first::after{content:" (" attr(data-pt) ")";color:var(--accent);font-size:.82em;font-style:italic}
 #ptpop{position:absolute;z-index:20;max-width:320px;background:#1f2421;color:#fff;padding:.5rem .7rem;border-radius:8px;font-size:.9rem;box-shadow:0 6px 20px rgba(0,0,0,.2)}
 #ptpop .small{color:#cfd8d4;margin-top:.2rem}
+/* bilingual lines */
+.ptl{display:block;color:var(--accent);font-style:italic;font-weight:normal;font-size:.93em;margin-top:.15rem}
+.ptl.in{display:inline;margin:0}
+.opt .ptl{color:#3d6f63}
+button:not(.ghost):not(.opt) .ptl,.btn:not(.ghost) .ptl{color:#d4eee5}
