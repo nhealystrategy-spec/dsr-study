@@ -1,7 +1,7 @@
 MOD({
 id: 3, mins: 35,
-hook: ["Oral exam Task 1 is pure assessment and diagnosis, and many MCQs ask 'what first?'. This module gives you a clear, Australian way to run and write up an assessment.",
-       "A Tarefa 1 do exame oral é só avaliação e diagnóstico, e muitas questões perguntam 'o que fazer primeiro?'. Este módulo dá um jeito claro e australiano de fazer e registrar uma avaliação."],
+hook: ["'Obesity related to diabetes' looks like a nutrition diagnosis. It is wrong twice. This module shows you why, and gives oral exam Task 1 a clear shape.", "'Obesidade relacionada a diabetes' parece um diagnóstico nutricional. Está errado duas vezes. Este módulo mostra por quê e dá à Tarefa 1 do exame oral uma forma clara."],
+teasers: [["The ABCDE checklist that makes sure you never forget to ask about medicines", "O checklist ABCDE que garante que você nunca esqueça de perguntar sobre remédios"], ["Why one 24-hour recall can't tell you what someone usually eats", "Por que um único recordatório de 24 horas não mostra o que a pessoa costuma comer"], ["The protein and fluid sums you can do in your head in 10 seconds", "As contas de proteína e líquidos que você faz de cabeça em 10 segundos"]],
 goals: [
   ["Tell screening from assessment, and run the four NCP steps", "Diferenciar triagem de avaliação e seguir as quatro etapas do PCN"],
   ["Sort assessment data into the ABCDE domains", "Classificar dados de avaliação nos domínios ABCDE"],

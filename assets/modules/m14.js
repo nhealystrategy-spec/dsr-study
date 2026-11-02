@@ -1,7 +1,7 @@
 MOD({
 id: 14, mins: 30,
-hook: ["Your Brazilian UAN training is a real strength here. This module adds the Australian settings, standards and vocabulary so you can answer food service questions confidently.",
-       "Sua formação em UAN no Brasil é um ponto forte aqui. Este módulo acrescenta os serviços, as normas e o vocabulário australianos para você responder com segurança as questões de alimentação coletiva."],
+hook: ["Your Brazilian UAN training is a real advantage here: 'cook-chill' is just 'cocção-resfriamento'. The Australian twist is in the menu rules.", "Sua formação em UAN no Brasil é uma vantagem de verdade aqui: 'cook-chill' é só 'cocção-resfriamento'. A diferença australiana está nas regras de cardápio."],
+teasers: [["Why a hospital can use a one-week menu but an aged care home can't", "Por que um hospital pode usar um cardápio de uma semana e uma ILPI não"], ["The only two drinks an Australian childcare centre should offer", "As únicas duas bebidas que uma creche australiana deve oferecer"], ["The best way to see what residents really eat", "A melhor forma de ver o que os residentes realmente comem"]],
 goals: [
   ["Compare cook-fresh, cook-chill, cook-freeze and assembly-serve systems", "Comparar os sistemas cook-fresh, cook-chill, cook-freeze e assembly-serve"],
   ["Choose menu type and cycle length for each setting", "Escolher o tipo de cardápio e o tamanho do ciclo para cada serviço"],

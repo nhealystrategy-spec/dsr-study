@@ -1,7 +1,7 @@
 MOD({
 id: 10, mins: 35,
-hook: ["Pregnancy questions mix numbers (energy, weight gain, supplements) with food safety. The Australian advice on iodine, listeria and mercury is very specific, so learn it exactly.",
-       "As questões de gestação misturam números (energia, ganho de peso, suplementos) com segurança dos alimentos. A orientação australiana sobre iodo, listeria e mercúrio é bem específica, então aprenda exatamente."],
+hook: ["'Eating for two' is a myth: in the first trimester a pregnant woman needs no extra energy at all. The real numbers, and the cheese in her sandwich, are in here.", "'Comer por dois' é mito: no primeiro trimestre a gestante não precisa de nenhuma energia extra. Os números reais, e o queijo do sanduíche dela, estão aqui."],
+teasers: [["The two supplements almost every pregnant woman in Australia should take", "Os dois suplementos que quase toda gestante na Austrália deve tomar"], ["The fish to eat only once a fortnight", "O peixe para comer só uma vez a cada 15 dias"], ["How long to wait after one drink before breastfeeding", "Quanto tempo esperar depois de uma dose antes de amamentar"]],
 goals: [
   ["State extra energy needs and weight gain targets by BMI", "Dizer a energia extra e as metas de ganho de peso por IMC"],
   ["Advise on folic acid, iodine, iron and other supplements", "Orientar sobre ácido fólico, iodo, ferro e outros suplementos"],

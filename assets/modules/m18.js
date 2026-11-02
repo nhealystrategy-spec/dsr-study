@@ -1,7 +1,7 @@
 MOD({
 id: 18, mins: 35,
-hook: ["This is where Brazilian training differs most, so study it early. Learn how care is paid for, how dietitians are credentialed, and what culturally safe, ethical practice looks like in Australia.",
-       "É aqui que a formação brasileira mais difere, então estude cedo. Aprenda como o cuidado é pago, como os nutricionistas são credenciados e como é a prática ética e culturalmente segura na Austrália."],
+hook: ["In Brazil you register with the CRN. In Australia, dietitians are not registered with the government health regulator at all. So who decides if you can work? Start here.", "No Brasil você se registra no CRN. Na Austrália, os nutricionistas nem são registrados no órgão regulador de saúde do governo. Então quem decide se você pode trabalhar? Comece aqui."],
+teasers: [["How many Medicare-funded visits a client gets a year, and the report you must send", "Quantas consultas pelo Medicare o paciente tem por ano, e o relatório que você precisa mandar"], ["Who decides whether your care was culturally safe (it isn't you)", "Quem decide se o seu cuidado foi culturalmente seguro (não é você)"], ["Why a client's 12-year-old daughter should never interpret for her", "Por que a filha de 12 anos nunca deve ser a intérprete da paciente"]],
 goals: [
   ["Explain Medicare, private health insurance, NDIS, DVA and public services", "Explicar Medicare, planos de saúde, NDIS, DVA e serviços públicos"],
   ["Know the GPCCMP rules for dietitians (from July 2025)", "Conhecer as regras do GPCCMP para nutricionistas (desde julho de 2025)"],

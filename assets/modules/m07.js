@@ -1,7 +1,7 @@
 MOD({
 id: 7, mins: 40,
-hook: ["Kidney, liver, cancer and swallowing questions test one skill: knowing when a restriction helps and when it harms. Restrict only what the blood tests, the stage or the swallow assessment say.",
-       "Questões de rim, fígado, câncer e deglutição testam uma habilidade: saber quando uma restrição ajuda e quando prejudica. Restrinja só o que os exames, o estágio ou a avaliação da deglutição indicam."],
+hook: ["Banana, beans, orange juice, avocado: four Brazilian favourites that can push potassium too high in kidney disease. You don't have to ban them. Here is what you do instead.", "Banana, feijão, suco de laranja, abacate: quatro preferidos brasileiros que podem subir demais o potássio na doença renal. Não precisa proibir. Veja o que fazer no lugar."],
+teasers: [["The bedtime snack that protects muscle in liver disease", "O lanche antes de dormir que protege o músculo na doença hepática"], ["The kitchen trick that lowers the potassium in potatoes", "O truque de cozinha que reduz o potássio da batata"], ["Who decides the IDDSI level, and what your job is after that", "Quem decide o nível IDDSI, e qual é o seu papel depois disso"]],
 goals: [
   ["Match CKD advice to stage, blood results and dialysis", "Adequar a orientação na DRC ao estágio, aos exames e à diálise"],
   ["Sort foods into high and low potassium", "Classificar alimentos em ricos e pobres em potássio"],

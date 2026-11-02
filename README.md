@@ -16,5 +16,8 @@ An interactive course for Thaynar's Dietitians Australia DSR exams, with Portugu
 - `assets/lessons.js` + `pt-lessons.js`: flashcard facts per module (also used by daily review).
 - `assets/topics-sheet.js`: the 19 areas and 102 links from her original spreadsheet ("Go deeper" on each finish screen).
 - `assets/glossary.js`: English→Portuguese terms and the Brazil curriculum map. `assets/oral.js`: oral exam role plays.
+- Each module also has a `hook` (opening line on its intro page) and three `teasers` ("You'll find out" on the intro, the home card and the previous module's finish screen).
+- `assets/icons.js`: Phosphor icons (MIT licence), only the ones the site uses. Add a name to `tools/build-icons.py` and rerun it against the `@phosphor-icons/web` package to add more.
+- Design: Lexend headings and Source Sans 3 body text (Google Fonts), Brazilian flag colours for the brand, one colour per study area. Tokens are at the top of `assets/style.css`.
 - `tools/check-modules.js`: run `node tools/check-modules.js` after any content edit. It checks translations, markup, exercise answers and question links.
 - `MISSION.md`, `NOTES.md`: `/teach` workspace files.

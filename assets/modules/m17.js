@@ -1,7 +1,7 @@
 MOD({
 id: 17, mins: 30,
-hook: ["Research questions are mostly the same worldwide, so they should be quick marks. Add the NHMRC evidence levels and practise reading results and spotting bias.",
-       "As questões de pesquisa são quase iguais no mundo todo, então devem ser pontos rápidos. Acrescente os níveis de evidência do NHMRC e pratique ler resultados e identificar vieses."],
+hook: ["If 8% of the control group fall and 4% of the treated group fall, how many people must you treat to stop one fall? You will do it in your head by page 3.", "Se 8% do grupo controle caem e 4% do grupo tratado caem, quantas pessoas é preciso tratar para evitar uma queda? Você vai fazer de cabeça até a página 3."],
+teasers: [["The study design made for rare diseases", "O desenho de estudo feito para doenças raras"], ["The one number that tells you a result isn't significant", "O único número que mostra que um resultado não é significativo"], ["Why a screening tool needs high sensitivity", "Por que uma ferramenta de triagem precisa de alta sensibilidade"]],
 goals: [
   ["Match a research question to the right study design", "Ligar uma pergunta de pesquisa ao desenho de estudo certo"],
   ["Use the NHMRC levels of evidence", "Usar os níveis de evidência do NHMRC"],

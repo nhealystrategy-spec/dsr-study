@@ -1,7 +1,7 @@
 MOD({
 id: 11, mins: 30,
-hook: ["The official sample asks which nutrient matters MOST for different people. This module trains that exact skill: matching a person to their nutrient of concern.",
-       "O exemplo oficial pergunta qual nutriente importa MAIS para pessoas diferentes. Este módulo treina exatamente isso: ligar uma pessoa ao nutriente que mais preocupa."],
+hook: ["Spirulina, seaweed and mushrooms are sold as vegan B12. None of them is reliable. The exam loves matching a person to the nutrient they lack, and this module trains exactly that.", "Spirulina, algas e cogumelos são vendidos como fonte vegana de B12. Nenhum é confiável. A prova adora ligar uma pessoa ao nutriente que falta, e este módulo treina exatamente isso."],
+teasers: [["Why vegetarians need almost double the iron", "Por que vegetarianos precisam de quase o dobro de ferro"], ["The drink that cuts iron absorption at a lentil dinner", "A bebida que corta a absorção de ferro num jantar de lentilha"], ["Who needs 1300 mg of calcium a day", "Quem precisa de 1300 mg de cálcio por dia"]],
 goals: [
   ["Name the types of vegetarian diets", "Nomear os tipos de dieta vegetariana"],
   ["List the nutrients at risk on a vegan diet and their sources", "Listar os nutrientes em risco na dieta vegana e suas fontes"],

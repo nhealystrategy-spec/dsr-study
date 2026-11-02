@@ -1,7 +1,7 @@
 MOD({
 id: 13, mins: 35,
-hook: ["Aged care is one of the biggest employers of new dietitians in Australia, and DA expects you to know the aged care system. The big idea: protect intake and enjoyment, don't restrict.",
-       "O cuidado ao idoso é um dos maiores empregadores de nutricionistas recém-chegados na Austrália, e a DA espera que você conheça esse sistema. A grande ideia: proteger a ingestão e o prazer, não restringir."],
+hook: ["Sometimes the best 'diet' for a frail 86-year-old with diabetes is no diet at all. DA expects you to know why, and to know how Australian aged care works.", "Às vezes, a melhor 'dieta' para uma idosa frágil de 86 anos com diabetes é nenhuma dieta. A DA espera que você saiba por quê, e que conheça o cuidado ao idoso na Austrália."],
+teasers: [["The six MNA-SF questions, and the score that means malnourished", "As seis perguntas da MNA-SF, e o escore que significa desnutrição"], ["What Standard 6 says about a daughter joining her mother for Sunday lunch", "O que a Standard 6 diz sobre a filha que almoça com a mãe no domingo"], ["The simple food change for a resident who won't stay at the table", "A mudança simples para um residente que não fica à mesa"]],
 goals: [
   ["Spot the reasons older people eat less", "Identificar por que os idosos comem menos"],
   ["Set protein, calcium, vitamin D and fluid targets, and liberalise diets", "Definir metas de proteína, cálcio, vitamina D e líquidos, e liberar dietas"],

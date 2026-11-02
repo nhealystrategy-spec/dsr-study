@@ -1,7 +1,7 @@
 MOD({
 id: 2, mins: 35,
-hook: ["The exam expects you to think in Australian food groups and serves. Learn the plate, the serve sizes and which nutrient reference value answers which question.",
-       "A prova espera que você pense em grupos alimentares e porções australianas. Aprenda o prato, os tamanhos das porções e qual valor de referência responde a qual pergunta."],
+hook: ["In Australia, half a cup of cooked rice is one serve. So a normal Brazilian plate of rice can be four serves, and the exam counts serves, not grams.", "Na Austrália, meia xícara de arroz cozido é uma porção. Então um prato brasileiro normal de arroz pode ter quatro porções, e a prova conta porções, não gramas."],
+teasers: [["The one food group that is always 2 serves for every adult", "O grupo alimentar que é sempre 2 porções para todo adulto"], ["Why beans can count in two food groups, but never both at once", "Por que o feijão pode contar em dois grupos, mas nunca nos dois ao mesmo tempo"], ["Which nutrient value to use for one client, and which for 500 teenagers", "Qual valor de referência usar para uma paciente, e qual para 500 adolescentes"]],
 goals: [
   ["Name the five Australian Dietary Guidelines", "Citar as cinco Diretrizes Alimentares Australianas"],
   ["Sort foods into the five groups or 'discretionary'", "Classificar alimentos nos cinco grupos ou como 'discricionários'"],

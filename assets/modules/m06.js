@@ -1,7 +1,7 @@
 MOD({
 id: 6, mins: 40,
-hook: ["Gut questions are about telling conditions apart: strict for life (coeliac), a short trial (FODMAP), or individual (IBD). Australia also has its own gluten-free rules.",
-       "As questões de intestino são sobre diferenciar condições: rígido para a vida toda (celíaca), um teste curto (FODMAP) ou individual (DII). A Austrália também tem regras próprias para o sem glúten."],
+hook: ["A client who has already stopped gluten can get a 'normal' coeliac test and still have coeliac disease. The fix is in here, along with why Australia won't call oats gluten free.", "Uma paciente que já parou o glúten pode ter um exame de celíaca 'normal' e mesmo assim ter a doença. A solução está aqui, junto com o motivo de a Austrália não chamar a aveia de sem glúten."],
+teasers: [["How much bread a day, and for how long, before a coeliac blood test", "Quanto pão por dia, e por quanto tempo, antes do exame de sangue da celíaca"], ["Why onion and garlic can be a problem in IBS", "Por que cebola e alho podem ser um problema na SII"], ["The gut condition where nuts and seeds are fine, despite the old advice", "A condição intestinal em que oleaginosas e sementes estão liberadas, apesar do conselho antigo"]],
 goals: [
   ["Explain the coeliac testing pathway and the gluten challenge", "Explicar o caminho do diagnóstico da celíaca e a prova com glúten"],
   ["Teach an Australian gluten-free diet safely", "Ensinar com segurança uma dieta sem glúten australiana"],

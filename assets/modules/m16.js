@@ -1,7 +1,7 @@
 MOD({
 id: 16, mins: 30,
-hook: ["Public health questions ask what will work for a group, not one person. Your Brazilian saúde coletiva training fits well: learn the Australian frameworks, data and examples.",
-       "As questões de saúde coletiva perguntam o que vai funcionar para um grupo, não para uma pessoa. Sua formação em saúde coletiva no Brasil combina bem: aprenda os modelos, dados e exemplos australianos."],
+hook: ["A leaflet, a radio talk, or a cooking program built with the teenagers themselves: only one of these is usually the right exam answer. Learn the pattern behind it.", "Um folheto, uma palestra no rádio, ou um programa de culinária construído com os próprios adolescentes: só um costuma ser a resposta certa na prova. Aprenda o padrão por trás disso."],
+teasers: [["The five Ottawa Charter action areas in plain words", "Os cinco campos de ação da Carta de Ottawa em palavras simples"], ["The difference between an output and an outcome", "A diferença entre produto e resultado num programa"], ["Why counting who turned up doesn't prove a program worked", "Por que contar quem compareceu não prova que o programa funcionou"]],
 goals: [
   ["Explain social determinants and food insecurity in Australia", "Explicar os determinantes sociais e a insegurança alimentar na Austrália"],
   ["Sort actions into the 5 Ottawa Charter areas", "Classificar ações nas 5 áreas da Carta de Ottawa"],

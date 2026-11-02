@@ -1,7 +1,7 @@
 MOD({
 id: 15, mins: 30,
-hook: ["Food safety and labelling questions are pure Australian rules, so they are easy marks once learnt. Know the temperatures, the 2-hour/4-hour rule, HACCP, label parts and who regulates what.",
-       "As questões de segurança dos alimentos e rotulagem são regras australianas puras, então são pontos fáceis depois de aprendidas. Saiba as temperaturas, a regra de 2 horas/4 horas, o APPCC, as partes do rótulo e quem regula o quê."],
+hook: ["Cooked rice left out for 3 hours: keep it, chill it or bin it? Australia has an exact rule for this, and it is easy marks once you know it.", "Arroz cozido fora da geladeira por 3 horas: guardar, refrigerar ou jogar fora? A Austrália tem uma regra exata para isso, e são pontos fáceis depois que você sabe."],
+teasers: [["The two temperatures that mark the danger zone", "As duas temperaturas que marcam a zona de perigo"], ["Use-by or best-before: which one is about safety", "Use-by ou best-before: qual é sobre segurança"], ["Who regulates a vitamin pill in Australia (it isn't FSANZ)", "Quem regula um comprimido de vitamina na Austrália (não é a FSANZ)"]],
 goals: [
   ["Apply the temperature danger zone, the 2-hour/4-hour rule and cooling rules", "Aplicar a zona de perigo, a regra de 2 horas/4 horas e as regras de resfriamento"],
   ["List the 7 HACCP principles and who needs a food safety program", "Listar os 7 princípios do APPCC e quem precisa de programa de segurança dos alimentos"],

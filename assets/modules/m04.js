@@ -1,7 +1,7 @@
 MOD({
 id: 4, mins: 40,
-hook: ["Diabetes is in the official sample paper and in most outpatient lists. Learn the Australian numbers, how to read a diet history, and what to do in a hypo.",
-       "O diabetes aparece no exemplo oficial da prova e na maioria das agendas de ambulatório. Aprenda os números australianos, como ler uma anamnese alimentar e o que fazer numa hipoglicemia."],
+hook: ["In the official sample paper, the main priority for a man with new type 2 diabetes was not sugar. Can you guess what it was?", "No exemplo oficial da prova, a prioridade principal para um homem com diabetes tipo 2 recente não era o açúcar. Consegue adivinhar qual era?"],
+teasers: [["Why 150 mL of regular soft drink can be exactly the right treatment", "Por que 150 mL de refrigerante comum pode ser exatamente o tratamento certo"], ["The diabetes medicine that makes a keto diet risky", "O remédio para diabetes que torna a dieta cetogênica arriscada"], ["The three blood results that diagnose gestational diabetes (one is enough)", "Os três resultados que diagnosticam o diabetes gestacional (basta um)"]],
 goals: [
   ["Classify results as normal, prediabetes or diabetes (in mmol/L)", "Classificar resultados como normal, pré-diabetes ou diabetes (em mmol/L)"],
   ["Give practical carbohydrate advice with Australian low-GI swaps", "Dar orientação prática de carboidrato com trocas australianas de baixo IG"],

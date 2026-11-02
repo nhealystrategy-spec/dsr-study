@@ -1,7 +1,7 @@
 MOD({
 id: 5, mins: 35,
-hook: ["Heart disease and weight are the bread and butter of outpatient dietetics. Learn the Heart Foundation pattern, the fat and salt numbers, and how to talk about weight respectfully.",
-       "Doença cardíaca e peso são o dia a dia da nutrição ambulatorial. Aprenda o padrão da Heart Foundation, os números de gordura e sal e como falar de peso com respeito."],
+hook: ["Swapping butter for jam does not help a heart. The exam wants a different swap, and the reason changes how you give every piece of fat advice.", "Trocar manteiga por geleia não ajuda o coração. A prova quer outra troca, e o motivo muda a forma como você dá qualquer orientação sobre gordura."],
+teasers: [["The everyday Australian food that gives the most salt (it isn't chips)", "O alimento australiano do dia a dia que mais dá sal (não é salgadinho)"], ["How to turn the sodium on a label into grams of salt in one step", "Como transformar o sódio do rótulo em gramas de sal num passo só"], ["The first weight goal that already improves blood pressure and glucose", "A primeira meta de peso que já melhora a pressão e a glicemia"]],
 goals: [
   ["Describe the Heart Foundation heart-healthy eating pattern", "Descrever o padrão alimentar saudável para o coração da Heart Foundation"],
   ["Give fat swaps that lower LDL cholesterol", "Dar trocas de gordura que baixam o LDL"],

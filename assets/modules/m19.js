@@ -1,7 +1,7 @@
 MOD({
 id: 19, mins: 40,
-hook: ["The oral exam is three role plays and you must pass all three. This module turns DA's 2026 oral checklist into skills you can practise, and finishes with an MCQ game plan.",
-       "O exame oral são três simulações e é preciso passar nas três. Este módulo transforma o checklist oral da DA de 2026 em habilidades para praticar e termina com uma estratégia para a prova de múltipla escolha."],
+hook: ["You can know every fact and still fail the oral exam: examiners watch how you ask, listen and close. This module turns DA's 2026 checklist into skills you can practise tonight.", "Dá para saber todos os fatos e ainda assim reprovar no exame oral: os examinadores observam como você pergunta, escuta e encerra. Este módulo transforma o checklist da DA de 2026 em habilidades para praticar hoje à noite."],
+teasers: [["The four letters that make a client feel heard", "As quatro letras que fazem o paciente se sentir ouvido"], ["The five-part phone call for Task 3", "A ligação em cinco partes da Tarefa 3"], ["How many seconds you get per question in the written exam", "Quantos segundos você tem por questão na prova escrita"]],
 goals: [
   ["Use OARS and the spirit of motivational interviewing", "Usar o OARS e o espírito da entrevista motivacional"],
   ["Match your approach to the stage of change", "Ajustar a abordagem ao estágio de mudança"],

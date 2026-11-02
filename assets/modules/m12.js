@@ -1,7 +1,7 @@
 MOD({
 id: 12, mins: 30,
-hook: ["Allergy questions test three things: telling allergy from intolerance, current ASCIA advice, and Australia's own allergen labelling rules (which differ from Brazil and Europe).",
-       "As questões de alergia testam três coisas: diferenciar alergia de intolerância, a orientação atual da ASCIA e as regras australianas de rotulagem de alérgenos (diferentes do Brasil e da Europa)."],
+hook: ["Australian food labels must warn about lupin, but not about mustard. Learn the Australian list and the steps for anaphylaxis, and these questions become easy marks.", "Os rótulos australianos são obrigados a avisar sobre tremoço, mas não sobre mostarda. Aprenda a lista australiana e os passos da anafilaxia, e essas questões viram pontos fáceis."],
+teasers: [["The first thing to do in anaphylaxis (it isn't an antihistamine)", "O primeiro passo na anafilaxia (não é anti-histamínico)"], ["The allergy test ASCIA says not to trust", "O teste de alergia em que a ASCIA diz para não confiar"], ["The first formula for a baby with cow's milk allergy", "A primeira fórmula para um bebê com alergia ao leite de vaca"]],
 goals: [
   ["Tell IgE allergy, non-IgE allergy, intolerance and coeliac disease apart", "Diferenciar alergia IgE, alergia não IgE, intolerância e doença celíaca"],
   ["Follow the ASCIA anaphylaxis steps", "Seguir os passos da ASCIA na anafilaxia"],

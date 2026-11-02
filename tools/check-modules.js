@@ -25,6 +25,8 @@ for (const f of files) {
   if (!m) { err(f, 'did not register'); continue; }
   if (!html.includes(`assets/modules/${f}`)) err(f, 'not loaded in index.html');
   pairOK(m.hook, `m${id}.hook`); (m.goals || []).forEach((g, i) => pairOK(g, `m${id}.goal${i}`));
+  if (!Array.isArray(m.teasers) || m.teasers.length !== 3) err(`m${id}.teasers`, 'needs exactly 3 teasers');
+  else m.teasers.forEach((t, i) => pairOK(t, `m${id}.teaser${i}`));
   m.pages.forEach((p, pi) => {
     const w = `m${id}.p${pi + 1}`;
     pairOK(p.t, w + '.title'); (p.key || []).forEach((k, i) => pairOK(k, `${w}.key${i}`));

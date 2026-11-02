@@ -56,8 +56,22 @@ Object.assign(PT_UI, {
   'Read aloud': 'Ouvir a página', 'Stop': 'Parar', 'Reading speed': 'Velocidade da leitura',
   'Course complete!': 'Curso completo!', 'Take a full mock exam': 'Faça um simulado completo', 'Then revisit your weakest modules': 'Depois reveja seus módulos mais fracos'
 });
-const NOTE_LABEL = {exam: ['🎯 Exam tip', '🎯 Dica de prova'], br: ['🇧🇷 → 🇦🇺 Brazil vs Australia', '🇧🇷 → 🇦🇺 Brasil x Austrália'], warn: ['⚠️ Watch out', '⚠️ Atenção'],
-  tip: ['💡 Remember', '💡 Lembre-se'], eg: ['🧪 Example', '🧪 Exemplo'], aus: ['🦘 In Australia', '🦘 Na Austrália']};
+Object.assign(PT_UI, {
+  'Up next': 'A seguir', 'Today': 'Hoje', 'Daily goal': 'Meta do dia', 'Daily goal reached!': 'Meta do dia batida!', 'You\'ll find out': 'Você vai descobrir',
+  'Exam-style questions. Take your time and trust what you just read.': 'Questões no estilo da prova. Vá com calma e confie no que acabou de ler.',
+  'Did it stick?': 'Ficou na cabeça?', 'Everything that matters, on one page': 'Tudo o que importa, numa página só', 'Next up': 'Próximo',
+  'XP this module': 'XP neste módulo', 'Level': 'Nível', 'Start module': 'Começar o módulo', 'You did it.': 'Você conseguiu.',
+  'One page is 10 XP. Reach the goal to keep your streak.': 'Cada página vale 10 XP. Bata a meta para manter a sequência.',
+  'Practice': 'Prática', 'Mock exam': 'Simulado', 'Oral exam': 'Exame oral', 'Glossary': 'Glossário', 'Read aloud': 'Ouvir a página'
+});
+const NOTE_LABEL = {exam: ['target', 'Exam tip', 'Dica de prova'], br: ['airplane-tilt', 'Brazil vs Australia', 'Brasil x Austrália'], warn: ['warning', 'Watch out', 'Atenção'],
+  tip: ['lightbulb', 'Remember', 'Lembre-se'], eg: ['flask', 'Example', 'Exemplo'], aus: ['map-pin', 'In Australia', 'Na Austrália']};
+// Icons: decorative by default (aria-hidden); every icon sits next to visible text or inside a labelled control.
+const ic = (name, cls = '') => ICONS[name] ? `<svg class="ic ${cls}" viewBox="0 0 1024 1024" aria-hidden="true" focusable="false"><path d="${ICONS[name]}"/></svg>` : '';
+const MOD_ICON = {1: 'atom', 2: 'bowl-food', 3: 'clipboard-text', 4: 'drop', 5: 'heartbeat', 6: 'grains-slash', 7: 'first-aid', 8: 'fork-knife', 9: 'baby',
+  10: 'baby-carriage', 11: 'leaf', 12: 'egg', 13: 'hand-heart', 14: 'cooking-pot', 15: 'thermometer-simple', 16: 'users-three', 17: 'chart-bar', 18: 'handshake', 19: 'chats-circle'};
+const DAILY_GOAL = 50; // XP: about five pages, or one page plus a quick check and some cards
+const todayXP = () => S.today && S.today.d === ymd() ? S.today.xp : 0;
 
 // ---------- tap-to-translate (English mode: Portuguese for glossary terms; Portuguese mode: the English exam term) ----------
 const GL = new Map(GLOSSARY.map(g => [g[0].toLowerCase(), g]));
@@ -110,45 +124,54 @@ function touchStreak(){
   for (const n of [3, 7, 30]) if (S.streak.n >= n) badge('streak' + n);
 }
 function award(n){
-  const before = lvl(S.xp); S.xp += n; touchStreak(); save(); toast(`+${n} XP`, 'xp');
-  const after = lvl(S.xp); if (after > before) { toast(`${isPT() ? 'Subiu de nível' : 'Level up'}: ${lvlName(after)} 🎉`, 'big'); confetti(); }
+  const before = lvl(S.xp), had = todayXP(); S.xp += n; touchStreak();
+  S.today = {d: ymd(), xp: had + n}; save(); toast(`+${n} XP`, 'xp', 'star-fill');
+  if (had < DAILY_GOAL && had + n >= DAILY_GOAL) { setTimeout(() => toast(T('Daily goal reached!'), 'big', 'target'), 400); confetti(); }
+  const after = lvl(S.xp); if (after > before) { toast(`${isPT() ? 'Subiu de nível' : 'Level up'}: ${lvlName(after)}`, 'big', 'trophy-fill'); confetti(); }
+  const xb = $('.pxp b'); if (xb) xb.textContent = S.xp;
 }
 const BADGES = {
-  first: ['👣', 'First steps', 'Primeiros passos', 'Finished your first page', 'Terminou a primeira página'],
-  mod1: ['🌱', 'Module complete', 'Módulo concluído', 'Finished a whole module', 'Terminou um módulo inteiro'],
-  perfect: ['💯', 'Perfect quiz', 'Quiz perfeito', 'Every question right in a module', 'Acertou todas as questões de um módulo'],
-  combo5: ['🔥', 'On fire', 'Pegando fogo', '5 right answers in a row', '5 acertos seguidos'],
-  streak3: ['📅', '3-day streak', '3 dias seguidos', 'Studied 3 days in a row', 'Estudou 3 dias seguidos'],
-  streak7: ['🏅', '7-day streak', '7 dias seguidos', 'Studied 7 days in a row', 'Estudou 7 dias seguidos'],
-  streak30: ['🏆', '30-day streak', '30 dias seguidos', 'Studied 30 days in a row', 'Estudou 30 dias seguidos'],
-  half: ['🧭', 'Halfway', 'Metade do caminho', 'Finished 10 modules', 'Terminou 10 módulos'],
-  all: ['🎓', 'Course complete', 'Curso completo', 'Finished all 19 modules', 'Terminou os 19 módulos'],
-  cards50: ['🃏', 'Card shark', 'Fera dos cartões', 'Reviewed 50 cards', 'Revisou 50 cartões'],
-  mock: ['📝', 'Mock exam done', 'Simulado feito', 'Finished a mock exam', 'Terminou um simulado'],
-  mock70: ['🎯', '70% club', 'Clube dos 70%', '70% or more on a mock exam', '70% ou mais num simulado'],
-  oral: ['🎙️', 'Oral rehearsal', 'Ensaio oral', 'Finished an oral exam practice', 'Terminou uma prática oral']
+  first: ['footprints', 'First steps', 'Primeiros passos', 'Finished your first page', 'Terminou a primeira página'],
+  mod1: ['plant', 'Module complete', 'Módulo concluído', 'Finished a whole module', 'Terminou um módulo inteiro'],
+  perfect: ['seal-check', 'Perfect quiz', 'Quiz perfeito', 'Every question right in a module', 'Acertou todas as questões de um módulo'],
+  combo5: ['fire', 'On fire', 'Pegando fogo', '5 right answers in a row', '5 acertos seguidos'],
+  streak3: ['calendar-check', '3-day streak', '3 dias seguidos', 'Studied 3 days in a row', 'Estudou 3 dias seguidos'],
+  streak7: ['medal', '7-day streak', '7 dias seguidos', 'Studied 7 days in a row', 'Estudou 7 dias seguidos'],
+  streak30: ['trophy', '30-day streak', '30 dias seguidos', 'Studied 30 days in a row', 'Estudou 30 dias seguidos'],
+  half: ['compass', 'Halfway', 'Metade do caminho', 'Finished 10 modules', 'Terminou 10 módulos'],
+  all: ['graduation-cap', 'Course complete', 'Curso completo', 'Finished all 19 modules', 'Terminou os 19 módulos'],
+  cards50: ['cards', 'Card shark', 'Fera dos cartões', 'Reviewed 50 cards', 'Revisou 50 cartões'],
+  mock: ['exam', 'Mock exam done', 'Simulado feito', 'Finished a mock exam', 'Terminou um simulado'],
+  mock70: ['target', '70% club', 'Clube dos 70%', '70% or more on a mock exam', '70% ou mais num simulado'],
+  oral: ['microphone', 'Oral rehearsal', 'Ensaio oral', 'Finished an oral exam practice', 'Terminou uma prática oral']
 };
 function badge(id){
   if (S.badges[id]) return; S.badges[id] = Date.now(); save();
-  const b = BADGES[id]; setTimeout(() => toast(`${b[0]} ${isPT() ? 'Conquista' : 'Badge'}: ${isPT() ? b[2] : b[1]}`, 'big'), 500);
+  const b = BADGES[id]; setTimeout(() => toast(`${isPT() ? 'Conquista' : 'Badge'}: ${isPT() ? b[2] : b[1]}`, 'big', b[0]), 500);
 }
 let combo = 0;
 function comboHit(ok){
   combo = ok ? combo + 1 : 0;
-  if (combo >= 3) toast(`🔥 ${combo} ${isPT() ? 'seguidas!' : 'in a row!'}`, 'combo');
+  if (combo >= 3) toast(`${combo} ${isPT() ? 'seguidas!' : 'in a row!'}`, 'combo', 'fire-fill');
   if (combo >= 5) badge('combo5');
 }
 let toastBox;
-function toast(msg, kind = ''){
+function toast(msg, kind = '', icon = ''){
   toastBox ||= document.body.appendChild(Object.assign(document.createElement('div'), {id: 'toasts'}));
-  const t = document.createElement('div'); t.className = 'toast ' + kind; t.textContent = msg; t.setAttribute('role', 'status');
+  const t = document.createElement('div'); t.className = 'toast ' + kind; t.innerHTML = ic(icon) + `<span>${esc(msg)}</span>`; t.setAttribute('role', 'status');
   toastBox.append(t); setTimeout(() => t.classList.add('out'), 1700); setTimeout(() => t.remove(), 2200);
+}
+function goalRing(size = 64){ // daily XP goal as a ring; colour stays meaningful with the number inside
+  const p = Math.min(1, todayXP() / DAILY_GOAL), r = 26, c = 2 * Math.PI * r;
+  return `<svg class="goal" width="${size}" height="${size}" viewBox="0 0 64 64" role="img" aria-label="${T('Daily goal')}: ${todayXP()}/${DAILY_GOAL} XP">
+    <circle cx="32" cy="32" r="${r}" class="goal-bg"/><circle cx="32" cy="32" r="${r}" class="goal-fg" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - p)}" transform="rotate(-90 32 32)"/>
+    <text x="32" y="37" text-anchor="middle" class="goal-tx">${p >= 1 ? '✓' : Math.round(p * 100) + '%'}</text></svg>`;
 }
 function confetti(){
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const c = document.createElement('canvas'); c.id = 'confetti'; document.body.append(c);
   const x = c.getContext('2d'), W = c.width = innerWidth, Hh = c.height = innerHeight;
-  const cols = ['#0f6e5c', '#f2b84b', '#e76f51', '#2a9d8f', '#8ab17d', '#e9c46a', '#6b46c1'];
+  const cols = ['#009c3b', '#ffdf00', '#002776', '#ffffff', '#009c3b', '#ffdf00', '#e8590c']; // Brazilian flag colours
   const ps = Array.from({length: 150}, () => ({x: W / 2 + (Math.random() - .5) * 220, y: Hh * .4, vx: (Math.random() - .5) * 13, vy: -Math.random() * 13 - 4,
     r: Math.random() * 7 + 4, c: cols[Math.random() * cols.length | 0], a: Math.random() * 6}));
   let f = 0;
@@ -161,7 +184,8 @@ function confetti(){
 }
 
 // ---------- question rendering ----------
-const src = url => `<a class="cite" href="${url}" target="_blank" rel="noopener">${T('source ↗')}</a>`;
+const src = url => `<a class="cite" href="${url}" target="_blank" rel="noopener">${T('source ↗').replace(/\s*↗$/, '')}${ic('arrow-up-right')}</a>`;
+const verdict = ok => `<b class="${ok ? 'goodtxt' : 'badtxt'}">${ic(ok ? 'check-circle-fill' : 'x-circle-fill')}${T(ok ? '✓ Correct.' : '✗ Not quite.').replace(/^[✓✗]\s*/, '')}</b>`;
 function qHTML(q, n){
   const c = q.type === 'c' ? CASES[q.case] : null, e = q.type === 'e' ? EMQS[q.emq] : null;
   const kind = {s: 'Stand-alone', c: 'Case-based', e: 'Extended matching'}[q.type];
@@ -181,7 +205,8 @@ function mountQuestion(el, q, {feedback = true, picked = null, onPick} = {}){
   const show = i => {
     box.querySelectorAll('.opt').forEach(b => { b.disabled = true; const bi = +b.dataset.i; if (bi === q.ans) b.classList.add('right'); else if (bi === i) b.classList.add('wrong'); });
     const w = el.querySelector('.why'); w.hidden = false;
-    w.innerHTML = `<b>${T(i === q.ans ? '✓ Correct.' : '✗ Not quite.')}</b> ${L(q.why, q.pt?.[2])} ${src(q.src)}`;
+    w.innerHTML = `${verdict(i === q.ans)} ${L(q.why, q.pt?.[2])} ${src(q.src)}`;
+    w.classList.toggle('ok', i === q.ans);
     annotate(w);
   };
   const mark = i => box.querySelectorAll('.opt').forEach(b => b.classList.toggle('picked', +b.dataset.i === i));
@@ -248,47 +273,59 @@ function block(b, id){
     case 'p': return `<p>${R(b.t)}</p>`;
     case 'ul': return `<ul class="blist">${b.items.map(x => `<li>${R(x)}</li>`).join('')}</ul>`;
     case 'ol': return `<ol class="blist">${b.items.map(x => `<li>${R(x)}</li>`).join('')}</ol>`;
-    case 'note': return `<aside class="note ${b.kind}"><div class="nlabel">${esc(tx(NOTE_LABEL[b.kind]))}</div>${R(b.t)}</aside>`;
+    case 'note': { const n = NOTE_LABEL[b.kind]; return `<aside class="note ${b.kind}"><div class="nlabel">${ic(n[0])}${esc(isPT() ? n[2] : n[1])}</div>${R(b.t)}</aside>`; }
     case 'table': return `<div class="tablewrap"><table class="btable"><thead><tr>${b.head.map(h => `<th>${R(h)}</th>`).join('')}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${R(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
     case 'flow': return `<ol class="flow">${b.steps.map(s => `<li><b>${R(s[0])}</b>${s[1] ? `<span>${R(s[1])}</span>` : ''}</li>`).join('')}</ol>`;
     case 'fig': return `<figure class="fig">${b.svg}${b.cap ? `<figcaption>${R(b.cap)}</figcaption>` : ''}</figure>`;
     default: WREG[id] = b; return `<div class="widget w-${b.k}" data-w="${id}"></div>`;
   }
 }
-function stepLabel(m, st){
-  if (st.k === 'page') return `${T('Page')} ${st.i + 1}/${m.pages.length}`;
-  if (st.k === 'q') return st.kind === 'check' ? `⚡ ${T('Quick check')}` : `📝 ${st.n}/${st.of}`;
-  return {summary: '🧠 ' + T('Mini review'), cards: '🃏 ' + T('Cards'), done: '🎉'}[st.k];
+// The label under the progress bar re-hooks: it names what comes next, so every page ends on a reason to keep going.
+function stepLabel(m, i){
+  const nx = steps(m)[i + 1];
+  if (!nx) return '';
+  const what = nx.k === 'page' ? R(m.pages[nx.i].t) : nx.k === 'q' ? T(nx.kind === 'check' ? 'Quick check' : 'Module quiz')
+    : T({summary: 'Mini review', cards: 'Cards', done: 'Module complete!'}[nx.k]);
+  return `<span class="upnext">${T('Up next')}</span> <span class="upwhat">${what}</span>`;
 }
+const stepIcon = st => st.k === 'page' ? 'book-open-text' : st.k === 'q' ? (st.kind === 'check' ? 'lightning' : 'exam') : {summary: 'brain', cards: 'cards', done: 'trophy'}[st.k];
 function stepHTML(m, st){
   if (st.k === 'page') {
     const pg = m.pages[st.i];
-    return `<div class="kicker">${T('Page')} ${st.i + 1} ${T('of')} ${m.pages.length}</div><h1>${R(pg.t)}</h1>
+    return `<div class="kicker">${ic('book-open-text')}${T('Page')} ${st.i + 1} ${T('of')} ${m.pages.length}</div><h1>${R(pg.t)}</h1>
       ${pg.b.map((b, bi) => block(b, `${m.id}.${st.i}.${bi}`)).join('')}
       ${pg.key ? `<section class="keybox"><h2>${T('Key points')}</h2><ul>${pg.key.map(k => `<li>${R(k)}</li>`).join('')}</ul></section>` : ''}
-      ${pg.src ? `<p class="srcline">${T('Sources')}: ${pg.src.map(u => `<a href="${u}" target="_blank" rel="noopener">${esc(new URL(u).hostname.replace(/^www\d?\./, ''))} ↗</a>`).join(' · ')}</p>` : ''}`;
+      ${pg.src ? `<p class="srcline">${ic('arrow-square-out')}${T('Sources')}: ${pg.src.map(u => `<a href="${u}" target="_blank" rel="noopener">${esc(new URL(u).hostname.replace(/^www\d?\./, ''))}</a>`).join(' · ')}</p>` : ''}`;
   }
-  if (st.k === 'q') return `<div class="kicker ${st.kind}">${st.kind === 'check' ? '⚡ ' + T('Quick check') : `📝 ${T('Module quiz')} · ${st.n} ${T('of')} ${st.of}`}</div>${qHTML(st.q)}`;
+  if (st.k === 'q') return st.kind === 'check'
+    ? `<div class="kicker check">${ic('lightning-fill')}${T('Quick check')} · ${T('Did it stick?')}</div>${qHTML(st.q)}`
+    : `<div class="kicker quiz">${ic('exam')}${T('Module quiz')} · ${st.n} ${T('of')} ${st.of}</div>${st.n === 1 ? `<p class="rehook">${T('Exam-style questions. Take your time and trust what you just read.')}</p>` : ''}${qHTML(st.q)}`;
   if (st.k === 'summary') return summaryHTML(m);
-  if (st.k === 'cards') return `<div class="kicker">🃏 ${T('Test yourself')}</div><h1>${T('Flip the cards')}</h1><p class="lede">${T('Say the answer out loud, then flip. These cards come back in your daily review.')}</p><div id="mflash" class="flash"></div>`;
+  if (st.k === 'cards') return `<div class="kicker">${ic('cards')}${T('Test yourself')}</div><h1>${T('Flip the cards')}</h1><p class="lede">${T('Say the answer out loud, then flip. These cards come back in your daily review.')}</p><div id="mflash" class="flash"></div>`;
   return doneHTML(m);
 }
 function summaryHTML(m){
   const a = mState(m.id).ans, wrong = mQs(m).filter(q => a[q.id] != null && a[q.id] !== q.ans);
   const rev = q => { const [o, po] = qOpts(q), x = a[q.id];
-    return `<div class="revisit"><div class="stem">${L(q.stem, q.pt?.[0])}</div><div class="small bad">✗ ${T('You said')}: ${L(o[x], po[x])}</div><div class="small good">✓ ${T('Answer')}: ${L(o[q.ans], po[q.ans])}</div><div class="small">${L(q.why, q.pt?.[2])}</div></div>`; };
-  return `<div class="kicker">🧠 ${T('Mini review')}</div><h1>${T('Everything in this module')}</h1>
+    return `<div class="revisit"><div class="stem">${L(q.stem, q.pt?.[0])}</div><div class="small bad">${ic('x-circle-fill')}${T('You said')}: ${L(o[x], po[x])}</div><div class="small good">${ic('check-circle-fill')}${T('Answer')}: ${L(o[q.ans], po[q.ans])}</div><div class="small">${L(q.why, q.pt?.[2])}</div></div>`; };
+  return `<div class="kicker">${ic('brain')}${T('Mini review')}</div><h1>${T('Everything that matters, on one page')}</h1>
     <p class="lede">${T('Read it once, out loud if you can. Print it or come back to it before the exam.')}</p>
     ${m.pages.map((pg, i) => `<section class="sumsec"><h2><span class="snum">${i + 1}</span>${R(pg.t)}</h2><ul>${(pg.key || []).map(k => `<li>${R(k)}</li>`).join('')}</ul></section>`).join('')}
-    ${wrong.length ? `<h2>${T('Questions to revisit')}</h2>${wrong.map(rev).join('')}` : `<p class="goodmsg">🌟 ${T('No mistakes to revisit. Great work!')}</p>`}
-    <p><button class="ghost" id="printsum">🖨️ ${T('Print this summary')}</button></p>`;
+    ${wrong.length ? `<h2>${T('Questions to revisit')}</h2>${wrong.map(rev).join('')}` : `<p class="goodmsg">${ic('seal-check-fill')}${T('No mistakes to revisit. Great work!')}</p>`}
+    <p><button class="ghost" id="printsum">${ic('printer')}${T('Print this summary')}</button></p>`;
 }
+// Finish screen: bank the win (score, level), then spend it straight away on the next module's best teaser.
 function doneHTML(m){
-  const sc = mScore(m), pct = sc.total ? Math.round(100 * sc.right / sc.total) : 0, t = topic(m.id), i = lvl(S.xp), nx = LEVELS[i + 1];
-  return `<div class="done"><div class="bigemoji">${pct >= 80 ? '🏆' : pct >= 50 ? '🎉' : '💪'}</div><h1>${T('Module complete!')}</h1><p class="lede">${mTitle(m.id)}</p>
-    <div class="ring" style="--p:${pct}"><span>${pct}%</span></div><p>${sc.right}/${sc.total} ${T('questions right')}</p>
-    <div class="lvl"><b>⭐ ${S.xp} XP</b> · ${esc(lvlName(i))}${nx ? `<div class="bar"><i style="width:${100 * (S.xp - LEVELS[i][0]) / (nx[0] - LEVELS[i][0])}%"></i></div><span class="small muted">${nx[0] - S.xp} XP ${T('to')} ${esc(lvlName(i + 1))}</span>` : ''}</div>
-    <div class="row center"><button class="ghost" id="redo">↺ ${T('Redo the questions')}</button><a class="btn ghost" href="#/">${T('All modules')}</a></div></div>
+  const sc = mScore(m), pct = sc.total ? Math.round(100 * sc.right / sc.total) : 0, t = topic(m.id), i = lvl(S.xp), nx = LEVELS[i + 1], nm = mod(m.id + 1);
+  return `<div class="done area-${areaOf(m.id)}"><div class="medal">${ic(MOD_ICON[m.id])}<span class="medal-check">${ic('check')}</span></div>
+    <p class="kicker center">${T('Module complete!')}</p><h1>${T('You did it.')}</h1><p class="lede">${mTitle(m.id)}</p>
+    <div class="donestats"><div class="ring" style="--p:${pct}"><span>${pct}%</span></div>
+      <div class="dstat"><b>${sc.right}/${sc.total}</b><span>${T('questions right')}</span></div>
+      <div class="dstat"><b>${ic('star-fill')} ${S.xp}</b><span>${esc(lvlName(i))}</span></div></div>
+    ${nx ? `<div class="lvl"><div class="bar"><i style="width:${100 * (S.xp - LEVELS[i][0]) / (nx[0] - LEVELS[i][0])}%"></i></div><span class="small muted">${nx[0] - S.xp} XP ${T('to')} ${esc(lvlName(i + 1))}</span></div>` : ''}
+    ${nm ? `<a class="nextcard area-${areaOf(nm.id)}" href="#/m/${nm.id}"><span class="nicon">${ic(MOD_ICON[nm.id])}</span><span class="nbody"><span class="kicker">${T('Next up')} · ${T('Module')} ${nm.id}</span>
+      <span class="ntitle">${mTitle(nm.id)}</span><span class="nteaser">${R(nm.teasers[0])}</span></span>${ic('caret-right', 'ngo')}</a>` : ''}
+    <div class="row center"><button class="ghost" id="redo">${ic('arrow-counter-clockwise')}${T('Redo the questions')}</button><a class="btn ghost" href="#/">${ic('house')}${T('All modules')}</a></div></div>
     <section class="deeper"><h2>${T('Self-check')}</h2><p>${L(t.selfCheck, PT_TOPICS[m.id].selfCheck)}</p>
     <textarea id="notes" aria-label="${T('Self-check')}" placeholder="${isPT() ? 'Escreva ou dite sua resposta aqui. Salva automaticamente.' : 'Write or dictate your answer here. It saves automatically.'}">${esc(S.notes[m.id] || '')}</textarea>
     <h2>${T('Go deeper')}</h2><ul class="res-list">${t.resources.map((r, k) => `<li><span class="pill">${T(r.route)}</span> <a href="${r.url}" target="_blank" rel="noopener">${esc(r.title)}</a><div class="small muted">${L(r.focus, PT_TOPICS[m.id].res[k])}</div></li>`).join('')}
@@ -302,13 +339,14 @@ function player(m, i){
   if (st.k === 'done' && !ms.done) completeModule(m);
   WREG = {};
   const html = `<div class="player area-${areaOf(m.id)}">
-    <header class="ptop"><a class="px" href="#/m/${m.id}" aria-label="${T('Close')}">✕</a>
+    <header class="ptop"><a class="px" href="#/m/${m.id}" aria-label="${T('Close')}">${ic('x')}</a>
+      <span class="picon" aria-hidden="true">${ic(MOD_ICON[m.id])}</span>
       <div class="ptitle"><span class="pmod">${T('Module')} ${m.id}</span><span class="pname">${mTitle(m.id)}</span></div>
-      <span class="pxp" title="XP">⭐ ${S.xp}</span>${canSpeak ? `<button class="speak" id="speak" aria-label="${T('Read aloud')}" title="${T('Read aloud')}">🔊</button><button class="rate" id="rate" title="${T('Reading speed')}">${S.rate || 1}×</button>` : ''}${langToggle()}</header>
-    <div class="pbar" aria-hidden="true">${ss.map((x, k) => `<i class="${k < i ? 'done' : k === i ? 'on' : ''}${x.k === 'q' ? ' qs' : ''}"></i>`).join('')}</div>
+      <span class="pxp" title="XP">${ic('star-fill')}<b>${S.xp}</b></span>${canSpeak ? `<button class="speak" id="speak" aria-label="${T('Read aloud')}" title="${T('Read aloud')}">${ic('speaker-high')}</button><button class="rate" id="rate" title="${T('Reading speed')}" aria-label="${T('Reading speed')}">${S.rate || 1}×</button>` : ''}${langToggle()}</header>
+    <div class="pbar" role="progressbar" aria-label="${T('Module')} ${m.id}" aria-valuemin="1" aria-valuemax="${ss.length}" aria-valuenow="${i + 1}">${ss.map((x, k) => `<i class="${k < i ? 'done' : k === i ? 'on' : ''}${x.k === 'q' ? ' qs' : ''}"></i>`).join('')}</div>
     <article class="pcard" id="pcard">${stepHTML(m, st)}</article>
-    <nav class="pnav" aria-label="Lesson"><button class="ghost" id="pback" ${i ? '' : 'disabled'}>← ${T('Back')}</button><span class="plabel">${stepLabel(m, st)}</span>
-      <button id="pnext">${T(st.k === 'done' ? (mod(m.id + 1) ? 'Next module' : 'All modules') : st.k === 'cards' ? 'Finish module' : 'Next')} →</button></nav></div>`;
+    <nav class="pnav" aria-label="Lesson"><button class="ghost" id="pback" ${i ? '' : 'disabled'} aria-label="${T('Back')}">${ic('arrow-left')}<span>${T('Back')}</span></button><span class="plabel">${stepLabel(m, i)}</span>
+      <button id="pnext">${st.k === 'done' && mod(m.id + 1) ? `${T('Start module')} ${m.id + 1}` : T(st.k === 'done' ? 'All modules' : st.k === 'cards' ? 'Finish module' : 'Next')}${ic('arrow-right')}</button></nav></div>`;
   return {html, mount: () => mountStep(m, st, i)};
 }
 function mountStep(m, st, i){
@@ -348,12 +386,12 @@ function mountCards(m){
   const deck = CARDS.filter(c => c.t === m.id), el = $('#mflash'); let k = 0;
   const show = () => {
     const c = deck[k];
-    if (!c) { el.innerHTML = `<div class="face"><div class="front">🎉 ${T('All cards done!')}</div></div>`; return; }
+    if (!c) { el.innerHTML = `<div class="face"><div class="front">${ic('seal-check-fill', 'big good')}${T('All cards done!')}</div></div>`; return; }
     el.innerHTML = `<p class="muted small">${k + 1} / ${deck.length}</p><div class="face"><div class="front">${L(c.q, c.pq)}</div><div class="back" hidden>${L(c.a, c.pa)}</div>
-      <div class="row center" id="fb"><button id="flip">${T('Show answer')}</button></div></div>`;
+      <div class="row center" id="fb"><button id="flip">${ic('eye')}${T('Show answer')}</button></div></div>`;
     $('#flip').onclick = () => {
       el.querySelector('.back').hidden = false;
-      $('#fb').innerHTML = `<button class="ghost" data-g="0">😅 ${T('Not yet')}</button><button data-g="2">😎 ${T('Got it')}</button>`;
+      $('#fb').innerHTML = `<button class="ghost" data-g="0">${ic('arrow-counter-clockwise')}${T('Not yet')}</button><button data-g="2">${ic('check')}${T('Got it')}</button>`;
       $('#fb').onclick = e => { const g = e.target.closest('[data-g]')?.dataset.g; if (g == null) return; rate(c, +g); award(5); k++; show(); };
       annotate(el.querySelector('.back'));
     };
@@ -380,7 +418,7 @@ document.addEventListener('touchend', e => {
 // ---------- interactive exercises ----------
 function mountWidget(el, b, id){
   if (!b) return;
-  const head = (icon, label) => `<div class="wtag">${icon} ${T(label)}</div><div class="wq">${R(b.q)}</div>`;
+  const head = (icon, label) => `<div class="wtag">${ic({'🎮': 'squares-four', '🧩': 'list-numbers', '🔢': 'calculator', '🤔': 'eye', '✅': 'check-square'}[icon] || icon)}${T(label)}</div><div class="wq">${R(b.q)}</div>`;
   const win = () => { if (!S.wid[id]) { S.wid[id] = 1; award(5); } };
   ({sort: wSort, order: wOrder, num: wNum, reveal: wReveal, pick: wPick})[b.k](el, b, head, win);
 }
@@ -389,19 +427,19 @@ function wSort(el, b, head, win){
   const reset = () => { items = shuffle(b.items); k = 0; score = 0; draw(); };
   const draw = () => {
     if (k >= items.length) {
-      el.innerHTML = head('🎮', 'Sort it') + `<div class="wdone">${score === items.length ? '🌟' : '👍'} ${score}/${items.length} ${T('correct')}</div><button class="ghost sm" data-again>↺ ${T('Play again')}</button>`;
+      el.innerHTML = head('🎮', 'Sort it') + `<div class="wdone">${ic(score === items.length ? 'seal-check-fill' : 'check-circle', 'good')} ${score}/${items.length} ${T('correct')}</div><button class="ghost sm" data-again>${ic('arrow-counter-clockwise')}${T('Play again')}</button>`;
       el.querySelector('[data-again]').onclick = reset; if (score === items.length) win(); return;
     }
     const it = items[k];
-    el.innerHTML = head('🎮', 'Sort it') + `<div class="wprog"><span>${k + 1}/${items.length}</span><span>✓ ${score}</span></div><div class="witem">${R(it)}</div>
+    el.innerHTML = head('🎮', 'Sort it') + `<div class="wprog"><span>${k + 1}/${items.length}</span><span>${ic('check')}${score}</span></div><div class="wtrack"><i style="width:${100 * k / items.length}%"></i></div><div class="witem">${R(it)}</div>
       <div class="wbuckets">${b.buckets.map((bk, bi) => `<button class="bucket" data-b="${bi}">${R(bk)}</button>`).join('')}</div><div class="wfb" aria-live="polite"></div>`;
     el.querySelector('.wbuckets').onclick = e => {
       const btn = e.target.closest('.bucket'); if (!btn || btn.disabled) return;
       const ok = +btn.dataset.b === it[2]; if (ok) score++;
       el.querySelectorAll('.bucket').forEach(x => { x.disabled = true; if (+x.dataset.b === it[2]) x.classList.add('right'); else if (x === btn) x.classList.add('wrong'); });
       const fb = el.querySelector('.wfb');
-      if (ok) { fb.innerHTML = `<span class="goodtxt">✓ ${T('Nice!')}</span>`; setTimeout(() => { k++; draw(); }, 650); }
-      else { fb.innerHTML = `<span class="badtxt">✗ ${T('It goes in')}: <b>${R(b.buckets[it[2]])}</b></span> <button class="ghost sm" data-next>${T('Next')} →</button>`; fb.querySelector('[data-next]').onclick = () => { k++; draw(); }; }
+      if (ok) { fb.innerHTML = `<span class="goodtxt">${ic('check-circle-fill')}${T('Nice!')}</span>`; setTimeout(() => { k++; draw(); }, 650); }
+      else { fb.innerHTML = `<span class="badtxt">${ic('x-circle-fill')}${T('It goes in')}: <b>${R(b.buckets[it[2]])}</b></span> <button class="ghost sm" data-next>${T('Next')}${ic('arrow-right')}</button>`; fb.querySelector('[data-next]').onclick = () => { k++; draw(); }; }
     };
   };
   reset();
@@ -412,7 +450,7 @@ function wOrder(el, b, head, win){
   const draw = () => {
     const done = placed.length === b.items.length;
     el.innerHTML = head('🧩', 'Put in order') + `<ol class="wseq">${placed.map(p => `<li>${R(p.x)}</li>`).join('')}${done ? '' : '<li class="slot">?</li>'}</ol>` + (done
-      ? `<div class="wdone">${slips ? '👍' : '🌟'} ${slips ? `${slips} ${T('slips')}` : T('Perfect order!')}</div><button class="ghost sm" data-again>↺ ${T('Play again')}</button>`
+      ? `<div class="wdone">${ic(slips ? 'check-circle' : 'seal-check-fill', 'good')} ${slips ? `${slips} ${T('slips')}` : T('Perfect order!')}</div><button class="ghost sm" data-again>${ic('arrow-counter-clockwise')}${T('Play again')}</button>`
       : `<div class="wpool">${pool.map(p => `<button class="chip" data-i="${p.i}">${R(p.x)}</button>`).join('')}</div><div class="wfb" aria-live="polite">${T('Tap the next step')}</div>`);
     if (done) { el.querySelector('[data-again]').onclick = reset; win(); return; }
     el.querySelector('.wpool').onclick = e => {
@@ -429,15 +467,15 @@ function wNum(el, b, head, win){
   const inp = el.querySelector('input'), fb = el.querySelector('.wfb');
   const check = () => {
     const v = parseFloat(inp.value.replace(',', '.')); if (isNaN(v)) return; tries++;
-    if (Math.abs(v - b.ans) <= b.tol) { fb.innerHTML = `<span class="goodtxt">✓ ${T('Correct!')}</span> ${R(b.why)}`; win(); }
-    else if (tries < 2) fb.innerHTML = `<span class="badtxt">✗ ${T('Not quite. Try again.')}</span>`;
+    if (Math.abs(v - b.ans) <= b.tol) { fb.innerHTML = `<span class="goodtxt">${ic('check-circle-fill')}${T('Correct!')}</span> ${R(b.why)}`; win(); }
+    else if (tries < 2) fb.innerHTML = `<span class="badtxt">${ic('x-circle-fill')}${T('Not quite. Try again.')}</span>`;
     else fb.innerHTML = `${T('Answer')}: <b>${b.ans.toLocaleString(isPT() ? 'pt-BR' : 'en-AU')} ${esc(tx(b.unit))}</b>. ${R(b.why)}`;
   };
   el.querySelector('[data-check]').onclick = check; inp.onkeydown = e => { if (e.key === 'Enter') check(); };
 }
 function wReveal(el, b, head, win){
-  el.innerHTML = head('🤔', 'Think first') + `<button class="ghost sm" data-show>${T('Show answer')}</button><div class="wans" hidden>${R(b.a)}</div>`;
-  el.querySelector('[data-show]').onclick = e => { e.target.remove(); el.querySelector('.wans').hidden = false; win(); };
+  el.innerHTML = head('🤔', 'Think first') + `<button class="ghost sm" data-show>${ic('eye')}${T('Show answer')}</button><div class="wans" hidden>${R(b.a)}</div>`;
+  el.querySelector('[data-show]').onclick = e => { e.currentTarget.remove(); el.querySelector('.wans').hidden = false; win(); };
 }
 function wPick(el, b, head, win){
   const idx = shuffle(b.opts.map((_, i) => i));
@@ -445,57 +483,76 @@ function wPick(el, b, head, win){
   el.querySelector('.opts').onclick = e => {
     const btn = e.target.closest('.opt'); if (!btn || btn.disabled) return; const i = +btn.dataset.i, ok = i === b.ans;
     el.querySelectorAll('.opt').forEach(x => { x.disabled = true; if (+x.dataset.i === b.ans) x.classList.add('right'); else if (x === btn) x.classList.add('wrong'); });
-    el.querySelector('.wfb').innerHTML = `<b>${T(ok ? '✓ Correct.' : '✗ Not quite.')}</b> ${R(b.why)}`; if (ok) win();
+    el.querySelector('.wfb').innerHTML = `${verdict(ok)} ${R(b.why)}`; if (ok) win();
   };
 }
 
 // ---------- views ----------
 const V = {};
-function modRow(m){
+function modRow(m, cur){
   const st = S.mod[m.id], pr = mProgress(m), done = st?.done, sc = done ? mScore(m) : null;
-  return `<a class="mrow area-${areaOf(m.id)}${done ? ' done' : ''}" href="#/m/${m.id}"><span class="mnum">${done ? '✓' : m.id}</span>
-    <span class="mbody"><span class="mtitle">${mTitle(m.id)}</span><span class="small muted">${m.pages.length} ${T('pages')} · ~${m.mins} min${done ? ` · ${sc.right}/${sc.total} ✓` : ''}</span>
-    <span class="bar thin"><i style="width:${100 * pr}%"></i></span></span><span class="mgo">${T(done ? 'Revisit' : pr > 0 ? 'Continue' : 'Start')}</span></a>`;
+  return `<a class="node area-${areaOf(m.id)}${done ? ' done' : ''}${cur ? ' current' : ''}" href="#/m/${m.id}">
+    <span class="nodeicon">${ic(MOD_ICON[m.id])}${done ? `<span class="nodecheck">${ic('check')}</span>` : ''}</span>
+    <span class="nodebody"><span class="nodenum">${T('Module')} ${m.id}</span><span class="mtitle">${mTitle(m.id)}</span>
+      <span class="nodemeta">${m.pages.length} ${T('pages')} · ~${m.mins} min${done ? ` · ${ic('check-circle-fill')}${sc.right}/${sc.total}` : ''}</span>
+      ${pr > 0 && !done ? `<span class="bar thin"><i style="width:${100 * pr}%"></i></span>` : ''}</span>
+    <span class="mgo">${T(done ? 'Revisit' : pr > 0 ? 'Continue' : 'Start')}${ic('caret-right')}</span></a>`;
 }
 V.home = () => {
   const mods = MODS(), doneN = mods.filter(m => S.mod[m.id]?.done).length;
   const cur = mods.find(m => !S.mod[m.id]?.done) || mods[mods.length - 1];
   const cs = S.mod[cur.id], started = cs && cs.max >= 0 && !cs.done, ss = steps(cur);
   const {due, fresh} = dueCards(), days = Math.ceil((EXAM_DATE - Date.now()) / DAY), li = lvl(S.xp);
-  return `<section class="hero"><div><h1>Olá Thaynar 👋</h1>
-    <p class="lede">${H('One module at a time: read a page, tap <b>Next</b>, answer the quick checks, then do the mini review. A little every day beats a lot once a week.',
-      'Um módulo de cada vez: leia uma página, toque em <b>Próximo</b>, responda as checagens rápidas e depois faça a mini revisão. Um pouco todo dia vale mais que muito uma vez por semana.')}</p></div>
-    <div class="stats3"><div class="chip3">🔥 <b>${streakNow()}</b><span>${T('day streak')}</span></div><div class="chip3">⭐ <b>${S.xp}</b><span>${esc(lvlName(li))}</span></div><div class="chip3">📅 <b>${days}</b><span>${T('days to the exam')}</span></div></div></section>
-  ${doneN === mods.length ? `<a class="contcard area-prac" href="#/exam"><span class="cnum">🎓</span><span class="cbody"><span class="kicker">${T('Course complete!')}</span>
-    <span class="ctitle">${T('Take a full mock exam')}</span><span class="small">${T('Then revisit your weakest modules')}</span></span><span class="cgo" aria-hidden="true">▶</span></a>`
+  const allDone = doneN === mods.length;
+  return `<section class="hero">
+    <div class="hello"><p class="kicker">${ic('hand-waving')}Olá, Thaynar</p>
+      <h1>${H('You’re already a dietitian. Now learn the <em>Australian</em> version.', 'Você já é nutricionista. Agora aprenda a versão <em>australiana</em>.')}</h1>
+      <p class="lede">${H('Same nutrition science, new units, rules and exam words. Every module you finish is one step closer to working as a dietitian in Australia.',
+        'A mesma ciência da nutrição, com novas unidades, regras e palavras de prova. Cada módulo concluído é um passo a mais para trabalhar como nutricionista na Austrália.')}</p></div>
+    <div class="today">
+      <div class="todaytop">${goalRing(72)}<div><p class="kicker">${T('Today')}</p><p class="todayxp"><b>${todayXP()}</b> / ${DAILY_GOAL} XP</p>
+        <p class="small muted">${T('One page is 10 XP. Reach the goal to keep your streak.')}</p></div></div>
+      <div class="todaystats">
+        <span class="tstat fire">${ic('fire-fill')}<b>${streakNow()}</b><small>${T('day streak')}</small></span>
+        <span class="tstat star">${ic('star-fill')}<b>${S.xp}</b><small>${esc(lvlName(li))}</small></span>
+        <span class="tstat cal">${ic('calendar-blank')}<b>${Math.max(0, days)}</b><small>${T('days to the exam')}</small></span></div>
+    </div></section>
+  ${allDone ? `<a class="contcard area-prac" href="#/exam"><span class="ctile">${ic('graduation-cap')}</span><span class="cbody"><span class="kicker">${T('Course complete!')}</span>
+    <span class="ctitle">${T('Take a full mock exam')}</span><span class="cteaser">${T('Then revisit your weakest modules')}</span></span><span class="cgo">${ic('play-fill')}</span></a>`
   : `<a class="contcard area-${areaOf(cur.id)}" href="#/m/${cur.id}${started ? '/' + cs.at : ''}">
-    <span class="cnum">${cur.id}</span><span class="cbody"><span class="kicker">${T(started ? 'Continue where you left off' : 'Start here')}</span><span class="ctitle">${mTitle(cur.id)}</span>
-    <span class="small">${started ? `${T('Step')} ${cs.at + 1} ${T('of')} ${ss.length}` : `${cur.pages.length} ${T('pages')} · ${mQs(cur).length} ${T('questions')} · ~${cur.mins} min`}</span>
-    <span class="bar"><i style="width:${100 * mProgress(cur)}%"></i></span></span><span class="cgo" aria-hidden="true">▶</span></a>`}
-  <div class="quick"><a href="#/review" class="qa">🃏 <b>${T('Daily review')}</b><span>${due.length + fresh.length} ${T('cards')}</span></a>
-    <a href="#/practice" class="qa">🎯 <b>${T('Practice')}</b><span>${QUESTIONS.length} ${T('questions')}</span></a>
-    <a href="#/exam" class="qa">📝 <b>${T('Mock exam')}</b><span>120 · 150 min</span></a>
-    <a href="#/oral" class="qa">🎙️ <b>${T('Oral exam')}</b><span>${ORAL.length} ${T('role plays')}</span></a></div>
-  ${days > 0 ? `<div class="alert">${H(`Target: the <b>MCQ exam on 8 September 2027</b>. DA has not announced its deadlines yet. For the March sitting the DSR assessment was due about 3 months before, so plan to have your application in by <b>early June 2027</b>, with the Cultural Awareness assessment done first.`,
+    <span class="ctile">${ic(MOD_ICON[cur.id])}</span>
+    <span class="cbody"><span class="kicker">${T(started ? 'Continue where you left off' : 'Start here')} · ${T('Module')} ${cur.id}</span><span class="ctitle">${mTitle(cur.id)}</span>
+      <span class="cteaser">${ic('sparkle')}${R(cur.teasers[0])}</span>
+      <span class="cmeta">${started ? `${T('Step')} ${cs.at + 1} ${T('of')} ${ss.length}` : `${cur.pages.length} ${T('pages')} · ${mQs(cur).length} ${T('questions')} · ~${cur.mins} min`}</span>
+      <span class="bar"><i style="width:${100 * mProgress(cur)}%"></i></span></span><span class="cgo">${ic('play-fill')}</span></a>`}
+  <div class="quick">
+    <a href="#/review" class="qa"><span class="qicon">${ic('cards')}</span><b>${T('Daily review')}</b><span>${due.length + fresh.length} ${T('cards')}</span></a>
+    <a href="#/practice" class="qa"><span class="qicon">${ic('target')}</span><b>${T('Practice')}</b><span>${QUESTIONS.length} ${T('questions')}</span></a>
+    <a href="#/exam" class="qa"><span class="qicon">${ic('exam')}</span><b>${T('Mock exam')}</b><span>120 · 150 min</span></a>
+    <a href="#/oral" class="qa"><span class="qicon">${ic('microphone')}</span><b>${T('Oral exam')}</b><span>${ORAL.length} ${T('role plays')}</span></a></div>
+  ${days > 0 ? `<div class="alert">${ic('calendar-check')}<div>${H(`Target: the <b>MCQ exam on 8 September 2027</b>. DA has not announced its deadlines yet. For the March sitting the DSR assessment was due about 3 months before, so plan to have your application in by <b>early June 2027</b>, with the Cultural Awareness assessment done first.`,
     `Meta: a <b>prova de múltipla escolha em 8 de setembro de 2027</b>. A DA ainda não divulgou os prazos. Para a prova de março, a avaliação DSR precisou ser enviada cerca de 3 meses antes, então planeje enviar sua inscrição até o <b>início de junho de 2027</b>, com a avaliação de Cultural Awareness feita antes.`)}
-    <a href="https://dietitiansaustralia.org.au/working-dietetics/skills-recognition-australia/process-overseas-educated-dietitians/exam-dates-and-details" target="_blank" rel="noopener">${T('Exam dates ↗')}</a></div>` : ''}
-  <h2>${T('Your path')} <span class="muted small">${doneN}/19 ${T('modules done')}</span></h2>
-  ${AREAS.map(area => `<h3 class="areah area-${AREA_KEY[area]}">${T(area)}</h3><div class="path">${TOPICS.filter(t => t.area === area).map(t => mod(t.id) ? modRow(mod(t.id))
-    : `<div class="mrow soon"><span class="mnum">${t.id}</span><span class="mbody"><span class="mtitle">${L(t.title, PT_TOPICS[t.id].title)}</span><span class="small muted">${T('Coming soon')}</span></span></div>`).join('')}</div>`).join('')}
-  <h2>${T('Badges')}</h2><div class="badges">${Object.entries(BADGES).map(([k, b]) => `<div class="badge${S.badges[k] ? ' got' : ''}" title="${esc(isPT() ? b[4] : b[3])}"><span>${b[0]}</span><small>${esc(isPT() ? b[2] : b[1])}</small></div>`).join('')}</div>`;
+    <a href="https://dietitiansaustralia.org.au/working-dietetics/skills-recognition-australia/process-overseas-educated-dietitians/exam-dates-and-details" target="_blank" rel="noopener">${T('Exam dates ↗').replace(/\s*↗$/, '')}${ic('arrow-up-right')}</a></div></div>` : ''}
+  <div class="pathhead"><h2>${T('Your path')}</h2><span class="pathcount"><b>${doneN}</b>/19 ${T('modules done')}</span></div>
+  <div class="pathbar"><i style="width:${100 * doneN / 19}%"></i></div>
+  ${AREAS.map(area => `<h3 class="areah area-${AREA_KEY[area]}"><span class="adot"></span>${T(area)}</h3><div class="path">${TOPICS.filter(t => t.area === area).map(t => modRow(mod(t.id), !allDone && t.id === cur.id)).join('')}</div>`).join('')}
+  <h2>${T('Badges')} <span class="muted small">${Object.keys(S.badges).length}/${Object.keys(BADGES).length}</span></h2>
+  <div class="badges">${Object.entries(BADGES).map(([k, b]) => `<div class="badge${S.badges[k] ? ' got' : ''}" title="${esc(isPT() ? b[4] : b[3])}"><span class="bmedal">${ic(b[0])}</span><small>${esc(isPT() ? b[2] : b[1])}</small></div>`).join('')}</div>`;
 };
 function modIntro(m){
   const t = topic(m.id), st = S.mod[m.id], started = st && st.max >= 0, ss = steps(m);
   const maps = BRAZIL_MAP.map((x, k) => ({...x, pt: PT_MAP[k]})).filter(x => x.topics.includes(m.id));
   const startAt = started && !st.done ? st.at : 0;
-  return `<p class="small"><a href="#/">← ${T('All modules')}</a></p>
-  <section class="mhero area-${areaOf(m.id)}"><span class="mbig">${m.id}</span><div><span class="kicker">${T(t.area)}</span><h1>${mTitle(m.id)}</h1><p class="lede">${R(m.hook)}</p>
-    <div class="metas"><span>📄 ${m.pages.length} ${T('pages')}</span><span>❓ ${mQs(m).length} ${T('questions')}</span><span>🃏 ${CARDS.filter(c => c.t === m.id).length} ${T('cards')}</span><span>⏱️ ~${m.mins} min</span></div>
-    <div class="row"><a class="btn big" href="#/m/${m.id}/${startAt}">${T(st?.done ? 'Start again' : started ? 'Continue' : 'Start')} ▶</a>
-    ${started ? `<a class="small" href="#/m/${m.id}/${ss.findIndex(s => s.k === 'summary')}">🧠 ${T('Jump to the mini review')}</a>` : ''}</div></div></section>
-  <h2>${T('You will be able to')}</h2><ul class="goals">${m.goals.map(g => `<li>${R(g)}</li>`).join('')}</ul>
-  <h2>${T('In this module')}</h2><ol class="toc">${ss.map((s, k) => s.k === 'page' ? `<li class="${st && k <= st.max ? 'seen' : ''}"><a href="#/m/${m.id}/${k}">${R(m.pages[s.i].t)}</a></li>` : '').join('')}<li>${T('Module quiz and mini review')}</li></ol>
-  ${maps.length ? `<h2>${T('From Brazil to Australia')}</h2>${maps.map(x => `<div class="tip"><b>${T('You studied:')}</b> <span lang="pt-BR" class="nopt">${esc(x.br)}</span><br><b>${T('Same:')}</b> ${L(x.same, x.pt[0])}<br><b>${T('What changes:')}</b> ${L(x.change, x.pt[1])}</div>`).join('')}` : ''}`;
+  return `<p class="crumb"><a href="#/">${ic('arrow-left')}${T('All modules')}</a></p>
+  <section class="mhero area-${areaOf(m.id)}"><span class="mtile">${ic(MOD_ICON[m.id])}</span><div class="mhead">
+    <span class="kicker">${T('Module')} ${m.id} · ${T(t.area)}</span><h1>${mTitle(m.id)}</h1><p class="hook">${R(m.hook)}</p>
+    <div class="metas"><span>${ic('file-text')}${m.pages.length} ${T('pages')}</span><span>${ic('question')}${mQs(m).length} ${T('questions')}</span><span>${ic('cards')}${CARDS.filter(c => c.t === m.id).length} ${T('cards')}</span><span>${ic('clock')}~${m.mins} min</span></div>
+    <div class="row"><a class="btn big" href="#/m/${m.id}/${startAt}">${ic('play-fill')}${T(st?.done ? 'Start again' : started ? 'Continue' : 'Start')}</a>
+    ${started ? `<a class="small linkicon" href="#/m/${m.id}/${ss.findIndex(s => s.k === 'summary')}">${ic('brain')}${T('Jump to the mini review')}</a>` : ''}</div></div></section>
+  <section class="teasers area-${areaOf(m.id)}"><h2>${T('You\'ll find out')}</h2><ul>${m.teasers.map(x => `<li>${ic('sparkle')}<span>${R(x)}</span></li>`).join('')}</ul></section>
+  <div class="introgrid"><section><h2>${T('You will be able to')}</h2><ul class="goals">${m.goals.map(g => `<li>${ic('check-circle')}<span>${R(g)}</span></li>`).join('')}</ul></section>
+  <section><h2>${T('In this module')}</h2><ol class="toc">${ss.map((s, k) => s.k === 'page' ? `<li class="${st && k <= st.max ? 'seen' : ''}"><a href="#/m/${m.id}/${k}"><span class="tnum">${st && k <= st.max ? ic('check') : s.i + 1}</span>${R(m.pages[s.i].t)}</a></li>` : '').join('')}<li class="tquiz"><span class="tnum">${ic('exam')}</span>${T('Module quiz and mini review')}</li></ol></section></div>
+  ${maps.length ? `<h2>${T('From Brazil to Australia')}</h2>${maps.map(x => `<div class="tip">${ic('airplane-tilt')}<div><b>${T('You studied:')}</b> <span lang="pt-BR" class="nopt">${esc(x.br)}</span><br><b>${T('Same:')}</b> ${L(x.same, x.pt[0])}<br><b>${T('What changes:')}</b> ${L(x.change, x.pt[1])}</div></div>`).join('')}` : ''}`;
 }
 
 V.review = () => {
@@ -665,7 +722,7 @@ V.glossary = () => {
 // ---------- read aloud (the browser's own speech voices; nothing is sent anywhere) ----------
 const canSpeak = 'speechSynthesis' in window;
 const RATES = [1, 0.85, 0.7];
-const READ_SEL = 'h1, .pcard > p, .blist li, .note, .flow li, .btable tr, .keybox li, .sumsec h2, .sumsec li, .revisit, .wq, .case, .stem, .opt, .why:not([hidden]), .wans:not([hidden]), .front, .back:not([hidden]), .deeper > p';
+const READ_SEL = 'h1, .pcard > p:not(.srcline),.blist li, .note, .flow li, .btable tr, .keybox li, .sumsec h2, .sumsec li, .revisit, .wq, .case, .stem, .opt, .why:not([hidden]), .wans:not([hidden]), .front, .back:not([hidden]), .deeper > p';
 let speaking = false;
 function pickVoice(){
   const vs = speechSynthesis.getVoices();
@@ -673,7 +730,7 @@ function pickVoice(){
 }
 function updateSpeakBtn(){
   const b = $('#speak'); if (!b) return;
-  b.textContent = speaking ? '⏹' : '🔊'; b.classList.toggle('on', speaking);
+  b.innerHTML = ic(speaking ? 'stop' : 'speaker-high'); b.classList.toggle('on', speaking);
   b.setAttribute('aria-label', T(speaking ? 'Stop' : 'Read aloud'));
 }
 function stopSpeaking(){
@@ -715,7 +772,8 @@ function render(){
   document.body.classList.toggle('focus', inPlayer);
   const main = $('#main'); main.innerHTML = inPlayer ? out.html : out;
   const tabView = view === 'm' ? '' : view;
-  $$('nav.top a.tab').forEach(t => { t.classList.toggle('on', t.getAttribute('href') === '#/' + tabView); t.textContent = isPT() ? (PT_UI[t.dataset.en] || t.dataset.en) : t.dataset.en; });
+  $$('nav.top a.tab').forEach(t => { const on = t.getAttribute('href') === '#/' + tabView; t.classList.toggle('on', on); on ? t.setAttribute('aria-current', 'page') : t.removeAttribute('aria-current');
+    t.querySelector('.tl').textContent = isPT() ? (PT_UI[t.dataset.en] || t.dataset.en) : t.dataset.en; });
   $('#navlang').innerHTML = langToggle();
   if (inPlayer) out.mount(); else annotate(main);
   pop.hidden = true;
@@ -724,7 +782,8 @@ function render(){
 addEventListener('hashchange', render);
 addEventListener('DOMContentLoaded', () => {
   document.body.append(pop);
-  $$('nav.top a.tab').forEach(a => a.dataset.en = a.textContent);
+  $$('nav.top a.tab').forEach(a => { a.dataset.en = a.textContent.trim(); a.innerHTML = ic(a.dataset.icon) + '<span class="tl"></span>'; });
+  $$('[data-icon]:not(.tab)').forEach(a => a.insertAdjacentHTML('afterbegin', ic(a.dataset.icon)));
   document.documentElement.lang = isPT() ? 'pt-BR' : 'en';
   render();
 });

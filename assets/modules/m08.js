@@ -1,7 +1,7 @@
 MOD({
 id: 8, mins: 40,
-hook: ["Finding and treating malnutrition is a core hospital and aged care job. Australia's refeeding advice changed in 2025, so this module teaches the new AuSPEN approach.",
-       "Encontrar e tratar a desnutrição é trabalho central no hospital e na ILPI. A orientação australiana sobre realimentação mudou em 2025, então este módulo ensina a nova abordagem da AuSPEN."],
+hook: ["For years, hospitals fed very malnourished patients very slowly to avoid refeeding syndrome. In 2025, Australia's experts said to stop. Learn the new rule before you meet it in a question.", "Por anos, os hospitais alimentaram pacientes muito desnutridos bem devagar para evitar a síndrome de realimentação. Em 2025, os especialistas australianos disseram para parar. Aprenda a nova regra antes de encontrá-la numa questão."],
+teasers: [["The blood test that sounds like a nutrition marker but isn't", "O exame de sangue que parece marcador nutricional, mas não é"], ["The two questions that screen for malnutrition in about a minute", "As duas perguntas que fazem a triagem de desnutrição em cerca de um minuto"], ["The vitamin to give before the first meal or tube feed", "A vitamina a dar antes da primeira refeição ou dieta por sonda"]],
 goals: [
   ["Diagnose malnutrition with SGA and the GLIM criteria", "Diagnosticar desnutrição com a ASG e os critérios GLIM"],
   ["Score the Malnutrition Screening Tool", "Pontuar a Malnutrition Screening Tool"],

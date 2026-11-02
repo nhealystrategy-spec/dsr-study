@@ -1,7 +1,7 @@
 MOD({
 id: 9, mins: 35,
-hook: ["Paediatric questions are about timing: when to start solids, when to give cow's milk, when to introduce allergens, and when a growth pattern needs action.",
-       "As questões de pediatria são sobre momento certo: quando começar os sólidos, quando dar leite de vaca, quando introduzir alérgenos e quando um padrão de crescimento precisa de ação."],
+hook: ["Waiting to give peanut and egg 'to be safe' can make allergy more likely. The 2026 Australian advice is very clear, and the exam expects you to know it.", "Esperar para dar amendoim e ovo 'por segurança' pode deixar a alergia mais provável. A orientação australiana de 2026 é bem clara, e a prova espera que você saiba."],
+teasers: [["The growth chart Australia uses before age 2, and the one after", "A curva de crescimento que a Austrália usa antes dos 2 anos, e a de depois"], ["How much cow's milk is too much for a toddler", "Quanto leite de vaca é demais para uma criança pequena"], ["Who decides how much a fussy toddler eats", "Quem decide quanto come uma criança pequena seletiva"]],
 goals: [
   ["Give Australian milk feeding advice for the first 2 years", "Dar a orientação australiana sobre leite nos 2 primeiros anos"],
   ["Plan starting solids, including the 2026 ASCIA allergen advice", "Planejar a introdução alimentar, incluindo a orientação de alérgenos da ASCIA 2026"],

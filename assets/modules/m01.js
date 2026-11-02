@@ -1,7 +1,7 @@
 MOD({
 id: 1, mins: 25,
-hook: ["Your Brazilian science still counts. This module refreshes the pathways behind many clinical questions, and switches your brain to kilojoules.",
-       "Sua ciência do Brasil continua valendo. Este módulo revisa as vias por trás de muitas questões clínicas e passa sua cabeça para quilojoules."],
+hook: ["Take away the stomach and one vitamin can never be absorbed from food again. Links like that between the gut and a deficiency are classic exam questions, and so is thinking in kilojoules.", "Sem o estômago, uma vitamina nunca mais é absorvida pela comida. Ligações assim entre o intestino e uma deficiência são questões clássicas de prova, e pensar em quilojoules também."],
+teasers: [["Which part of the gut takes in iron, and why coeliac disease drains it", "Que parte do intestino absorve o ferro, e por que a celíaca o esgota"], ["The fuel the brain switches to after a few days without food", "O combustível que o cérebro passa a usar depois de alguns dias sem comer"], ["The quick sum that turns any Brazilian meal plan into Australian units", "A conta rápida que transforma qualquer plano alimentar brasileiro em unidades australianas"]],
 goals: [
   ["Say where each nutrient is absorbed, and what a gut resection takes away", "Dizer onde cada nutriente é absorvido e o que uma ressecção intestinal tira"],
   ["Explain the fed and fasting states using insulin and glucagon", "Explicar os estados alimentado e de jejum usando insulina e glucagon"],
