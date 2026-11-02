@@ -96,6 +96,9 @@ pages: [
       [["2. Reintroduce", "2. Reintroduzir"], ["Test ==one FODMAP group at a time== to find personal triggers.", "Testar ==um grupo de FODMAP por vez== para achar os gatilhos pessoais."]],
       [["3. Personalise", "3. Personalizar"], ["Long term: the ==least restrictive== diet that controls symptoms.", "Longo prazo: a dieta ==menos restritiva== que controla os sintomas."]]
     ),
+    VIDEO('stdYoA4G9Dg', 'Monash FODMAP', 3, ["IBS symptom relief with the FODMAP diet", "Alívio dos sintomas da SII com a dieta FODMAP"],
+      ["From the Monash University team that created the diet. An animation shows ==how and why FODMAPs trigger IBS symptoms== inside the gut, and where to find more help. Remember the 3 phases on this page, always ==with a dietitian==.",
+       "Da equipe da Monash University que criou a dieta. Uma animação mostra ==como e por que os FODMAPs causam os sintomas da SII== dentro do intestino e onde buscar mais ajuda. Lembre das 3 fases desta página, sempre ==com um nutricionista==."]),
     SORT(["Which FODMAP group?", "Qual grupo de FODMAP?"], [["Oligosaccharides", "Oligossacarídeos"], ["Lactose", "Lactose"], ["Excess fructose", "Excesso de frutose"], ["Polyols", "Polióis"]], [
       ["Onion", "Cebola", 0],
       ["Cow's milk", "Leite de vaca", 1],

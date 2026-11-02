@@ -41,6 +41,9 @@ pages: [
   b: [
     P("Signs of anaphylaxis: ==difficult or noisy breathing, swelling of the tongue, swelling or tightness in the throat, wheeze or persistent cough, hoarse voice, persistent dizziness or collapse==; young children may become pale and floppy.",
       "Sinais de anafilaxia: ==respiração difícil ou ruidosa, inchaço da língua, inchaço ou aperto na garganta, chiado ou tosse persistente, voz rouca, tontura persistente ou desmaio==; crianças pequenas podem ficar pálidas e moles."),
+    VIDEO('kqVOQLH_hco', 'ASCIA', 2, ["How to use an EpiPen trainer", "Como usar o EpiPen de treino"],
+      ["ASCIA shows the steps with the needle-free trainer pen: lie down, then ==blue to the sky, orange to the thigh==. Families you counsel should practise with a trainer.",
+       "A ASCIA mostra os passos com a caneta de treino, sem agulha: deitar e então ==azul para o céu, laranja para a coxa==. As famílias que você atende devem praticar com a caneta de treino."]),
     ORDER(["Put the ASCIA anaphylaxis action steps in order", "Coloque os passos de ação da ASCIA na anafilaxia em ordem"], [
       ["Lay the person flat (don't let them stand or walk)", "Deitar a pessoa (não deixar ficar em pé nem andar)"],
       ["Give the adrenaline autoinjector into the outer thigh", "Aplicar o autoinjetor de adrenalina na parte externa da coxa"],
@@ -50,11 +53,13 @@ pages: [
     ]),
     NOTE('warn', "==Adrenaline is the first-line treatment.== Antihistamines do not treat anaphylaxis. If in doubt, give adrenaline.",
       "==A adrenalina é o tratamento de primeira linha.== Anti-histamínicos não tratam anafilaxia. Na dúvida, aplique a adrenalina."),
+    NOTE('aus', "**Adrenaline devices (2026):** autoinjectors such as ==EpiPen== and ==Jext== go into the ==outer mid-thigh==. A nasal spray, ==neffy==, has been on the PBS since ==1 July 2026==. Use the device the person was prescribed. If there is no response after 5 minutes, another dose can be given.",
+      "**Dispositivos de adrenalina (2026):** autoinjetores como ==EpiPen== e ==Jext== vão na ==parte externa do meio da coxa==. Um spray nasal, o ==neffy==, está no PBS desde ==1º de julho de 2026==. Use o dispositivo prescrito para a pessoa. Se não houver resposta após 5 minutos, pode-se dar outra dose."),
     NOTE('tip', "The dietitian's job: ==avoidance education, label reading, eating out safely== and keeping the diet ==nutritionally adequate==. People at risk should have an ASCIA action plan and carry their autoinjector.",
       "O papel do nutricionista: ==orientar a exclusão, ensinar a ler rótulos, comer fora com segurança== e manter a dieta ==nutricionalmente adequada==. Quem tem risco deve ter um plano de ação da ASCIA e andar com o autoinjetor.")
   ],
-  key: [["Lay flat → **adrenaline** (outer thigh) → **000** → family → repeat after 5 min", "Deitar → **adrenalina** (coxa) → **000** → família → repetir após 5 min"], ["Antihistamines do **not** treat anaphylaxis", "Anti-histamínico **não** trata anafilaxia"], ["Dietitian: avoidance, labels, eating out, adequacy", "Nutricionista: exclusão, rótulos, comer fora, adequação"]],
-  src: ["https://www.allergy.org.au/patients/food-allergy/ascia-dietary-avoidance-for-food-allergy"]
+  key: [["Lay flat → **adrenaline** (injector in the outer thigh, or nasal spray) → **000** → family → repeat after 5 min", "Deitar → **adrenalina** (autoinjetor na coxa ou spray nasal) → **000** → família → repetir após 5 min"], ["Antihistamines do **not** treat anaphylaxis", "Anti-histamínico **não** trata anafilaxia"], ["Dietitian: avoidance, labels, eating out, adequacy", "Nutricionista: exclusão, rótulos, comer fora, adequação"]],
+  src: ["https://www.allergy.org.au/patients/food-allergy/ascia-dietary-avoidance-for-food-allergy", "https://www.allergy.org.au/hp/anaphylaxis/how-to-give-injector"]
 },
 {
   t: ["Prevention: the 2026 ASCIA advice", "Prevenção: a orientação da ASCIA de 2026"],

@@ -41,6 +41,9 @@ pages: [
       ["Check the menu against the setting's ==nutrition standard== (e.g. NSW Agency for Clinical Innovation hospital standards; aged care menu standards).", "Confira o cardápio com a ==norma de nutrição== do serviço (ex. normas hospitalares da NSW Agency for Clinical Innovation; normas de cardápio para ILPI)."],
       ["Include ==therapeutic and texture-modified (IDDSI)== options, allergy management, and ==cultural and religious needs== (halal, kosher, vegetarian).", "Inclua opções ==terapêuticas e de textura modificada (IDDSI)==, manejo de alergias e ==necessidades culturais e religiosas== (halal, kosher, vegetariana)."]
     ),
+    VIDEO('1XuDziFDbNI', 'HealthShare NSW', 2, ["My Food Choice in NSW public hospitals", "My Food Choice nos hospitais públicos de NSW"],
+      ["A real ==selective menu==. Staff take a picture menu on an iPad to the bedside, and patients order ==closer to mealtime==, with ==more choice==. The ward's diet order goes straight into the food service system.",
+       "Um ==cardápio seletivo== de verdade. A equipe leva um cardápio com fotos num iPad até o leito, e o paciente pede ==mais perto da hora da refeição==, com ==mais opções==. A prescrição de dieta da enfermaria vai direto para o sistema do serviço de alimentação."]),
     ORDER(["Put the menu planning steps in order", "Coloque as etapas de planejamento do cardápio em ordem"], [
       ["Know the clients and their needs", "Conhecer os clientes e suas necessidades"],
       ["Set the nutrition standard to meet", "Definir a norma de nutrição a atingir"],
@@ -81,6 +84,9 @@ pages: [
       ["Plan around allergies with families and written action plans.", "Planejar em torno das alergias com as famílias e planos de ação por escrito."],
       ["School canteens follow ==state policies== that rate foods (e.g. 'everyday' vs 'occasional', or green/amber/red).", "As cantinas escolares seguem ==políticas estaduais== que classificam os alimentos (ex. 'todo dia' x 'ocasional', ou verde/amarelo/vermelho)."]
     ),
+    VIDEO('bJvHQQQw_AE', 'NSW Health', 1, ["What is Munch & Move?", "O que é o Munch & Move?"],
+      ["NSW Health's healthy eating and active play program for ==early childhood education and care== services. It ==trains and supports educators==, and they share resources with families, such as ideas for a healthy lunchbox.",
+       "Programa da NSW Health de alimentação saudável e brincadeira ativa para ==serviços de educação infantil==. Ele ==capacita e apoia os educadores==, que compartilham materiais com as famílias, como ideias de lancheira saudável."]),
     PICK(["Which drinks should an Australian childcare centre offer?", "Quais bebidas uma creche australiana deve oferecer?"],
       [["Water and plain milk", "Água e leite puro"], ["Fruit juice at every meal", "Suco de fruta em toda refeição"], ["Cordial on hot days", "Refresco nos dias quentes"], ["Flavoured milk every day", "Leite com sabor todo dia"]], 0,
       ["Water and plain milk only; juice, cordial and flavoured milk add sugar.", "Só água e leite puro; suco, refresco e leite com sabor acrescentam açúcar."]),

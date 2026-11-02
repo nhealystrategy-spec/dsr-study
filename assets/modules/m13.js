@@ -78,6 +78,9 @@ pages: [
       [["6.3 Provision of food and drink", "6.3 Oferta de comida e bebida"], ["Varied, tasty, safe food (FSANZ, HACCP); choice; snacks and drinks any time; appealing texture-modified meals", "Comida variada, saborosa e segura (FSANZ, APPCC); escolha; lanches e bebidas a qualquer hora; refeições de textura modificada apetitosas"]],
       [["6.4 Dining experience", "6.4 Experiência nas refeições"], ["Pleasant dining room, enough staff to help, sharing meals with visitors", "Refeitório agradável, equipe suficiente para ajudar, compartilhar refeições com visitas"]]
     ),
+    VIDEO('qa_9mWi6pJY', 'Aged Care Quality and Safety Commission', 4, ["Standard 6: food and nutrition", "Standard 6: alimentação e nutrição"],
+      ["The regulator explains Standard 6. Providers must ==ask older people what they like to eat and drink== and support their choices, ==even when a choice has some risk==. Access to enough nutritious food is called a ==basic human right==.",
+       "O órgão regulador explica o Standard 6. Os prestadores devem ==perguntar aos idosos o que gostam de comer e beber== e apoiar as escolhas deles, ==mesmo quando a escolha tem algum risco==. O acesso a comida nutritiva suficiente é chamado de ==direito humano básico==."]),
     SORT(["Which Standard 6 outcome?", "Qual resultado da Standard 6?"], [["6.1 Partnering", "6.1 Parceria"], ["6.2 Assessment", "6.2 Avaliação"], ["6.3 Food and drink", "6.3 Comida e bebida"], ["6.4 Dining", "6.4 Refeições"]], [
       ["A residents' food committee reviews the new menu", "Um comitê de residentes revisa o novo cardápio", 0],
       ["Monthly weights and MNA-SF screening", "Pesagem mensal e triagem MNA-SF", 1],
@@ -100,6 +103,9 @@ pages: [
       ["Coughing at meals: refer to the ==speech pathologist==; follow the IDDSI level they prescribe.", "Tosse nas refeições: encaminhar ao ==fonoaudiólogo==; seguir o nível IDDSI que ele prescrever."],
       ["Near the end of life: ==comfort and pleasure== come first; small amounts of favourite foods.", "Perto do fim da vida: ==conforto e prazer== vêm primeiro; pequenas quantidades das comidas preferidas."]
     ),
+    VIDEO('a8GW1DVDPCY', 'Aged Care Quality and Safety Commission', 6, ["Food, nutrition, dining and dementia", "Alimentação, nutrição, refeições e demência"],
+      ["How dementia can change eating and drinking, and why it raises the risk of ==weight loss, malnutrition and dehydration==. Notice the ==person-centred== approach: get to know each person and find what works for them.",
+       "Como a demência pode mudar o jeito de comer e beber, e por que aumenta o risco de ==perda de peso, desnutrição e desidratação==. Repare na abordagem ==centrada na pessoa==: conhecer cada pessoa e descobrir o que funciona para ela."]),
     PICK(["A resident with dementia keeps leaving the table at meals. What helps MOST?", "Uma residente com demência sai da mesa nas refeições. O que ajuda MAIS?"],
       [["Offer finger foods she can eat while walking", "Oferecer alimentos que ela possa comer andando"], ["Make her sit until she finishes", "Fazê-la ficar sentada até terminar"], ["Skip the meal and wait for dinner", "Pular a refeição e esperar o jantar"], ["Replace all meals with supplements", "Trocar todas as refeições por suplementos"]], 0,
       ["Finger foods and snacks keep intake up without forcing. Restraint is never appropriate.", "Alimentos para comer com a mão e lanches mantêm a ingestão sem forçar. Contenção nunca é adequada."])

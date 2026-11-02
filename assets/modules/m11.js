@@ -61,6 +61,9 @@ pages: [
     ),
     P("**Haem iron** (meat, fish, poultry) is well absorbed. **Non-haem iron** (plants, eggs, fortified foods) is absorbed less, and the rest of the meal changes how much.",
       "O **ferro heme** (carne, peixe, frango) é bem absorvido. O **ferro não heme** (vegetais, ovos, alimentos fortificados) é menos absorvido, e o resto da refeição muda quanto se absorve."),
+    VIDEO('U1Ls9Vh-3m8', 'Khan Academy', 13, ["What is iron deficiency?", "O que é deficiência de ferro?"],
+      ["Why low iron gives ==small red blood cells== (microcytic anaemia): iron is needed to make haem, and haem to make haemoglobin. Good background for exam cases about anaemia.",
+       "Por que pouco ferro gera ==hemácias pequenas== (anemia microcítica): o ferro é necessário para fazer o heme, e o heme para fazer a hemoglobina. Boa base para casos de anemia na prova."]),
     SORT(["Helps or hinders non-haem iron absorption?", "Ajuda ou atrapalha a absorção do ferro não heme?"], [["Helps", "Ajuda"], ["Hinders", "Atrapalha"]], [
       ["Orange juice with the meal", "Suco de laranja junto da refeição", 0],
       ["A cup of tea with the meal", "Uma xícara de chá junto da refeição", 1],

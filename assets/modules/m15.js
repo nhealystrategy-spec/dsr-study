@@ -21,6 +21,9 @@ pages: [
     ),
     P("**Cooling** cooked food: from ==60 °C to 21 °C within 2 hours==, then ==21 °C to 5 °C within a further 4 hours== (shallow containers, ice baths). **Reheating**: quickly, until steaming hot, then hold at 60 °C or above.",
       "**Resfriamento** de comida cozida: de ==60 °C para 21 °C em até 2 horas==, depois de ==21 °C para 5 °C em mais 4 horas== (recipientes rasos, banho de gelo). **Reaquecimento**: rápido, até soltar vapor, e depois manter a 60 °C ou mais."),
+    VIDEO('RUeVNCEDbCo', 'NSW Food Authority', 2, ["Four golden rules of food safety", "Quatro regras de ouro da segurança dos alimentos"],
+      ["The ==2-hour/4-hour rule== and the ==danger zone of 5 to 60 °C== from this page in under 2 minutes, plus the rules for keeping food clean.",
+       "A ==regra das 2 horas/4 horas== e a ==zona de perigo de 5 a 60 °C== desta página em menos de 2 minutos, mais as regras para manter os alimentos limpos."]),
     SORT(["Ready-to-eat food out of temperature control. What now?", "Alimento pronto fora do controle de temperatura. E agora?"], [["Use or refrigerate", "Usar ou refrigerar"], ["Use now, don't refrigerate", "Usar agora, não refrigerar"], ["Throw out", "Descartar"]], [
       ["Sandwiches on a buffet for 90 minutes", "Sanduíches no bufê por 90 minutos", 0],
       ["Cooked rice on the bench for 3 hours", "Arroz cozido na bancada por 3 horas", 1],
@@ -36,6 +39,9 @@ pages: [
 {
   t: ["HACCP and food safety programs", "APPCC e programas de segurança dos alimentos"],
   b: [
+    VIDEO('BJoeovZnPWM', 'Food Standards Australia New Zealand', 2, ["Introduction to Standard 3.2.2A", "Introdução à Norma 3.2.2A"],
+      ["A short introduction from FSANZ, who wrote the standard. Standard 3.2.2A has three tools for food service businesses: a ==food safety supervisor==, ==food handler training== and, for some businesses, ==records that show food was handled safely==.",
+       "Uma introdução curta da FSANZ, que escreveu a norma. A Norma 3.2.2A tem três ferramentas para serviços de alimentação: um ==supervisor de segurança dos alimentos==, ==treinamento dos manipuladores== e, para alguns negócios, ==registros que mostram que o alimento foi manipulado com segurança==."]),
     ORDER(["Put the 7 HACCP principles in order", "Coloque os 7 princípios do APPCC em ordem"], [
       ["Conduct a hazard analysis", "Fazer a análise de perigos"],
       ["Identify critical control points (CCPs)", "Identificar os pontos críticos de controle (PCC)"],
@@ -54,7 +60,7 @@ pages: [
       "HACCP = ==APPCC==, critical control point = ==PCC==. Sua formação brasileira em Boas Práticas e APPCC vale diretamente; só use os termos em inglês.")
   ],
   key: [["HACCP: **hazard analysis → CCPs → limits → monitor → corrective action → verify → records**", "APPCC: **análise de perigos → PCC → limites → monitorar → ação corretiva → verificar → registros**"], ["CCP = step where control is **essential**", "PCC = etapa onde o controle é **essencial**"], ["Std **3.3.1**: food safety programs for hospitals, aged care, childcare", "Std **3.3.1**: programas de segurança para hospitais, ILPIs, creches"]],
-  src: ["https://www.foodauthority.nsw.gov.au/industry/audits-and-compliance/food-safety-programs-haccp", "https://www.foodstandards.gov.au/business/food-safety-standards"]
+  src: ["https://www.foodauthority.nsw.gov.au/industry/audits-and-compliance/food-safety-programs-haccp", "https://www.foodstandards.gov.au/business/food-safety-standards", "https://www.foodstandards.gov.au/business/food-safety/standard-322a-food-safety-management-tools"]
 },
 {
   t: ["Reading an Australian label", "Lendo um rótulo australiano"],
@@ -66,6 +72,9 @@ pages: [
       ["**Health Star Rating**: ==voluntary==, ½–5 stars, for comparing ==similar products== (cereal vs cereal).", "**Health Star Rating**: ==voluntário==, ½–5 estrelas, para comparar ==produtos parecidos== (cereal com cereal)."],
       ["Claims are regulated: e.g. 'low fat' = ≤ 3 g/100 g (solids); 'low salt' = ≤ 120 mg sodium/100 g. Health claims need FSANZ-approved food–health links.", "As alegações são reguladas: ex. 'low fat' = ≤ 3 g/100 g (sólidos); 'low salt' = ≤ 120 mg de sódio/100 g. Alegações de saúde precisam de relações alimento–saúde aprovadas pela FSANZ."]
     ),
+    VIDEO('74dCWKSqDvY', 'Australian Government Department of Health', 1, ["What is the Health Star Rating?", "O que é o Health Star Rating?"],
+      ["Products get ==½ to 5 stars==, with fewer stars for more added sugar, salt or fat. Use it to compare ==similar products==. Fresh fruit and vegetables automatically get 5 stars.",
+       "Os produtos recebem de ==½ a 5 estrelas==, com menos estrelas quando há mais açúcar adicionado, sal ou gordura. Use para comparar ==produtos parecidos==. Frutas e verduras frescas ganham 5 estrelas automaticamente."]),
     NUM(["A cereal has 18 g of sugars per 45 g serve. How many grams of sugars per 100 g? (1 decimal)", "Um cereal tem 18 g de açúcares por porção de 45 g. Quantos gramas por 100 g? (1 casa decimal)"], 40, 0.2, "g",
       ["18 ÷ 45 × 100 = 40 g per 100 g — 40% sugars.", "18 ÷ 45 × 100 = 40 g por 100 g — 40% de açúcares."]),
     NOTE('br', "Brazil's front-of-pack 'lupa' (magnifying glass) warns about high sugar, fat and sodium. Australia uses the ==voluntary Health Star Rating== instead, and kJ comes first on the panel.",

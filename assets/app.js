@@ -62,7 +62,8 @@ Object.assign(PT_UI, {
   'Did it stick?': 'Ficou na cabeça?', 'Everything that matters, on one page': 'Tudo o que importa, numa página só', 'Next up': 'Próximo',
   'XP this module': 'XP neste módulo', 'Level': 'Nível', 'Start module': 'Começar o módulo', 'You did it.': 'Você conseguiu.',
   'One page is 10 XP. Reach the goal to keep your streak.': 'Cada página vale 10 XP. Bata a meta para manter a sequência.',
-  'Practice': 'Prática', 'Mock exam': 'Simulado', 'Oral exam': 'Exame oral', 'Glossary': 'Glossário', 'Read aloud': 'Ouvir a página'
+  'Practice': 'Prática', 'Mock exam': 'Simulado', 'Oral exam': 'Exame oral', 'Glossary': 'Glossário', 'Read aloud': 'Ouvir a página',
+  'Video': 'Vídeo', 'Play video': 'Assistir ao vídeo', 'Watch on YouTube': 'Ver no YouTube', 'Watch on Vimeo': 'Ver no Vimeo'
 });
 const NOTE_LABEL = {exam: ['target', 'Exam tip', 'Dica de prova'], br: ['airplane-tilt', 'Brazil vs Australia', 'Brasil x Austrália'], warn: ['warning', 'Watch out', 'Atenção'],
   tip: ['lightbulb', 'Remember', 'Lembre-se'], eg: ['flask', 'Example', 'Exemplo'], aus: ['map-pin', 'In Australia', 'Na Austrália']};
@@ -277,9 +278,28 @@ function block(b, id){
     case 'table': return `<div class="tablewrap"><table class="btable"><thead><tr>${b.head.map(h => `<th>${R(h)}</th>`).join('')}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${R(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
     case 'flow': return `<ol class="flow">${b.steps.map(s => `<li><b>${R(s[0])}</b>${s[1] ? `<span>${R(s[1])}</span>` : ''}</li>`).join('')}</ol>`;
     case 'fig': return `<figure class="fig">${b.svg}${b.cap ? `<figcaption>${R(b.cap)}</figcaption>` : ''}</figure>`;
+    case 'video': return videoHTML(b);
     default: WREG[id] = b; return `<div class="widget w-${b.k}" data-w="${id}"></div>`;
   }
 }
+// Videos load nothing from YouTube or Vimeo until tapped (only the YouTube thumbnail image); then the player replaces the poster.
+function videoHTML(b){
+  const vimeo = b.id.startsWith('vimeo:'), id = vimeo ? b.id.slice(6) : b.id, [num, hash] = id.split('/'), host = vimeo ? 'Vimeo' : 'YouTube';
+  const play = vimeo ? `https://player.vimeo.com/video/${num}?autoplay=1&dnt=1${hash ? '&h=' + hash : ''}${b.start ? '#t=' + b.start + 's' : ''}`
+    : `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&cc_load_policy=1${b.start ? '&start=' + b.start : ''}`;
+  const watch = vimeo ? `https://vimeo.com/${id}` : `https://www.youtube.com/watch?v=${id}${b.start ? '&t=' + b.start + 's' : ''}`;
+  const name = `${tx(b.title)} (${b.by})`;
+  return `<figure class="video"><div class="vframe"><button class="vposter" data-src="${esc(play)}" data-title="${esc(name)}" aria-label="${T('Play video')}: ${esc(name)}">
+      ${vimeo ? '' : `<img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy">`}<span class="vbtn">${ic('play-fill')}</span></button></div>
+    <figcaption class="vcap"><div class="vtext"><div class="wtag">${ic('play')}${T('Video')}</div><b class="vtitle">${esc(tx(b.title))}</b>
+      <span class="vby nopt">${esc(b.by)} · ${b.mins} min${isPT() ? ' · em inglês' : ''}</span><p class="vwhy">${R(b.why)}</p></div>
+      <a class="vlink" href="${esc(watch)}" target="_blank" rel="noopener">${T('Watch on ' + host)}${ic('arrow-square-out')}</a></figcaption></figure>`;
+}
+document.addEventListener('click', e => {
+  const v = e.target.closest('.vposter'); if (!v) return;
+  const f = Object.assign(document.createElement('iframe'), {src: v.dataset.src, title: v.dataset.title, allow: 'autoplay; encrypted-media; picture-in-picture; fullscreen', allowFullscreen: true, referrerPolicy: 'strict-origin-when-cross-origin'});
+  v.replaceWith(f); f.focus();
+});
 // The label under the progress bar re-hooks: it names what comes next, so every page ends on a reason to keep going.
 function stepLabel(m, i){
   const nx = steps(m)[i + 1];
@@ -722,7 +742,7 @@ V.glossary = () => {
 // ---------- read aloud (the browser's own speech voices; nothing is sent anywhere) ----------
 const canSpeak = 'speechSynthesis' in window;
 const RATES = [1, 0.85, 0.7];
-const READ_SEL = 'h1, .pcard > p:not(.srcline),.blist li, .note, .flow li, .btable tr, .keybox li, .sumsec h2, .sumsec li, .revisit, .wq, .case, .stem, .opt, .why:not([hidden]), .wans:not([hidden]), .front, .back:not([hidden]), .deeper > p';
+const READ_SEL = 'h1, .pcard > p:not(.srcline),.blist li, .note, .flow li, .btable tr, .vtext, .keybox li, .sumsec h2, .sumsec li, .revisit, .wq, .case, .stem, .opt, .why:not([hidden]), .wans:not([hidden]), .front, .back:not([hidden]), .deeper > p';
 let speaking = false;
 function pickVoice(){
   const vs = speechSynthesis.getVoices();

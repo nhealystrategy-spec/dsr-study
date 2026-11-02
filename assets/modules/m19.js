@@ -21,6 +21,9 @@ pages: [
       [["**R**eflection", "**R**eflexão"], ["'It sounds like you're worried you'll have to give up your family's food.'", "'Parece que você tem medo de ter que abrir mão da comida da sua família.'"]],
       [["**S**ummary", "**R**esumo (Summary)"], ["'So far you've said… Have I got that right?'", "'Até agora você disse… Entendi direito?'"]]
     ),
+    VIDEO('-zEpwxJlRQI', 'Heart Foundation', 17, ["Motivational interviewing: introducing OARS", "Entrevista motivacional: apresentando o OARS"],
+      ["Part 5 of the Heart Foundation's training for health professionals. It explains the ==four core skills== of motivational interviewing (OARS), which you will use in the oral exam. Watch for examples you can borrow.",
+       "Parte 5 do treinamento da Heart Foundation para profissionais de saúde. Explica as ==quatro habilidades centrais== da entrevista motivacional (OARS), que você vai usar no exame oral. Procure exemplos que você possa usar."]),
     SORT(["Which OARS skill is it?", "Qual habilidade OARS é essa?"], [["Open question", "Pergunta aberta"], ["Affirmation", "Afirmação"], ["Reflection", "Reflexão"], ["Summary", "Resumo"]], [
       ["'How do you feel about your eating at the moment?'", "'Como você se sente sobre sua alimentação hoje?'", 0],
       ["'You came today even after a night shift. That shows commitment.'", "'Você veio hoje mesmo depois de um plantão. Isso mostra compromisso.'", 1],
@@ -82,6 +85,9 @@ pages: [
   b: [
     P("Task 3 (10 minutes) is a call with another health professional. DA wants to see you ==explain the dietitian's role, advocate for the client with evidence, handle disagreement calmly, and agree shared goals==.",
       "A Tarefa 3 (10 minutos) é uma ligação com outro profissional de saúde. A DA quer ver você ==explicar o papel do nutricionista, defender o paciente com evidências, lidar com discordâncias com calma e combinar metas em comum==."),
+    VIDEO('1Wl9qogPw1E', 'Australian Commission on Safety and Quality in Health Care', 4, ["ISBAR: a handover case study", "ISBAR: um caso de passagem de plantão"],
+      ["A handover when a patient moves between hospitals. As you watch, check each ISBAR part: ==Identify, Situation, Background, Assessment, Recommendation==. Is anything missing?",
+       "Uma passagem de plantão quando um paciente é transferido entre hospitais. Enquanto assiste, confira cada parte do ISBAR: ==Identificar, Situação, Background (histórico), Avaliação, Recomendação==. Falta alguma coisa?"]),
     ORDER(["Put this call to Carla's GP in ISBAR order", "Coloque esta ligação ao GP da Carla na ordem ISBAR"], [
       ["I: 'Hi Dr Patel, it's Thaynar, the dietitian. I'm calling about Carla Santos, 54.'", "I: 'Olá, Dr. Patel, aqui é a Thaynar, nutricionista. Estou ligando sobre a Carla Santos, 54 anos.'"],
       ["S: 'She's having shaky, sweaty episodes on night shifts since starting gliclazide.'", "S: 'Ela tem episódios de tremor e suor nos plantões noturnos desde que começou a gliclazida.'"],

@@ -21,6 +21,9 @@ pages: [
     ),
     NOTE('br', "Same core message as Brazil's guide for children under 2: exclusive breastfeeding to 6 months, no sugar. In Australia, 'toddler milk' marketing is common; you can say it is ==not needed==.",
       "A mesma mensagem central do guia brasileiro para menores de 2 anos: aleitamento exclusivo até 6 meses, sem açúcar. Na Austrália, o marketing de 'toddler milk' (composto lácteo) é comum; você pode dizer que ==não é necessário==."),
+    VIDEO('lsy_TAHOvCQ', 'Raising Children Network', 5, ["Is my baby getting enough breastmilk?", "Meu bebê está mamando o suficiente?"],
+      ["A worry you will often hear from mothers. An expert explains how to tell if a baby is ==getting enough milk==, and answers questions about too much milk and expressing.",
+       "Uma preocupação que você vai ouvir muito das mães. Um especialista explica como saber se o bebê está ==mamando o suficiente== e responde dúvidas sobre leite demais e ordenha."]),
     PICK(["A mother asks if her 8-month-old can drink cow's milk from a cup instead of formula. Best answer?", "Uma mãe pergunta se o bebê de 8 meses pode tomar leite de vaca no copo em vez da fórmula. Melhor resposta?"],
       [["Not as the main drink until 12 months; small amounts in food are fine", "Não como bebida principal até 12 meses; pequenas quantidades em preparações ok"], ["Yes, any milk is fine from 6 months", "Sim, qualquer leite serve a partir dos 6 meses"], ["Only reduced-fat cow's milk", "Só leite de vaca com menos gordura"], ["Switch to rice milk instead", "Trocar por bebida de arroz"]], 0,
       ["Cow's milk can replace breast milk or formula as the main drink only from 12 months.", "O leite de vaca só pode substituir o leite materno ou a fórmula como bebida principal a partir dos 12 meses."])
@@ -39,6 +42,9 @@ pages: [
       ["Once tolerated, keep giving them ==at least once a week==. A mild rash around the mouth is often not an allergy.", "Depois de tolerados, continuar oferecendo ==pelo menos uma vez por semana==. Uma vermelhidão leve ao redor da boca muitas vezes não é alergia."],
       ["==No honey before 12 months== (botulism). ==No whole nuts under 3 years== (choking): use smooth pastes.", "==Sem mel antes de 12 meses== (botulismo). ==Sem castanhas inteiras antes dos 3 anos== (engasgo): use pastas lisas."]
     ),
+    VIDEO('OdUWldYLOHI', 'Raising Children Network', 4, ["Starting solids: 4 quick answers", "Introdução alimentar: 4 respostas rápidas"],
+      ["Four questions in about 4 minutes: ==when== to start (most babies are ready from around 6 months), ==how much== to give, ==what== to give and how to ==prevent choking==. Good plain words to reuse with parents.",
+       "Quatro perguntas em cerca de 4 minutos: ==quando== começar (a maioria dos bebês está pronta por volta dos 6 meses), ==quanto== oferecer, ==o que== oferecer e como ==evitar engasgo==. Boas palavras simples para usar com os pais."]),
     ORDER(["Order the textures as a baby progresses", "Ordene as texturas conforme o bebê avança"], [
       ["Smooth purees", "Purês lisos"],
       ["Mashed foods", "Alimentos amassados"],

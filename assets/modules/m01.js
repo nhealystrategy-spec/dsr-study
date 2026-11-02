@@ -23,6 +23,9 @@ pages: [
     ),
     NOTE('exam', "Exams link anatomy to deficiency. Stomach removed → no intrinsic factor → ==B12 injections for life==. Terminal ileum removed → B12 and bile salts lost → fat malabsorption and low fat-soluble vitamins (A, D, E, K). Duodenal damage (e.g. coeliac disease) → ==iron and calcium==.",
       "As provas ligam anatomia a deficiência. Sem estômago → sem fator intrínseco → ==B12 injetável para sempre==. Sem íleo terminal → perde B12 e sais biliares → má absorção de gordura e vitaminas lipossolúveis baixas (A, D, E, K). Lesão no duodeno (ex. doença celíaca) → ==ferro e cálcio=="),
+    VIDEO('UgnF1w-H8vw', 'Khan Academy', 7, ["The small intestine: duodenum, jejunum and ileum", "O intestino delgado: duodeno, jejuno e íleo"],
+      ["This short lesson draws the three parts of the small intestine. Listen for where ==most digestion== happens (duodenum), where ==most absorption== happens (jejunum) and what the ileum takes in (==B12== and vitamins A, D, E and K).",
+       "Esta aula curta desenha as três partes do intestino delgado. Preste atenção em onde acontece ==a maior parte da digestão== (duodeno), onde acontece ==a maior parte da absorção== (jejuno) e o que o íleo absorve (==B12== e as vitaminas A, D, E e K)."]),
     PICK(["After a total gastrectomy (stomach removed), which vitamin will the patient need by injection for life?", "Depois de uma gastrectomia total (sem estômago), qual vitamina o paciente vai precisar tomar injetável para sempre?"],
       [["Vitamin B12", "Vitamina B12"], ["Vitamin C", "Vitamina C"], ["Folate", "Folato"], ["Vitamin K", "Vitamina K"]], 0,
       ["No stomach means no intrinsic factor, so B12 from food can't be absorbed in the ileum.", "Sem estômago não há fator intrínseco, então a B12 dos alimentos não é absorvida no íleo."])
@@ -44,6 +47,9 @@ pages: [
     ),
     NOTE('tip', "**Acetyl-CoA is the crossroads.** Carbohydrate, fat and some amino acids all feed into it. When there is lots of acetyl-CoA but little carbohydrate, the liver turns it into ketones (page 4).",
       "**O acetil-CoA é o cruzamento.** Carboidrato, gordura e alguns aminoácidos entram por ele. Quando há muito acetil-CoA e pouco carboidrato, o fígado o transforma em cetonas (página 4)."),
+    VIDEO('FE2jfTXAJHg', 'Khan Academy', 14, ["Overview of glycolysis", "Visão geral da glicólise"],
+      ["From your study planner. It shows how glycolysis breaks down glucose, then what happens next ==with oxygen== (Krebs cycle and electron transport chain) or ==without oxygen== (lactic acid). You don't need every step: keep the big picture from this page.",
+       "Do seu plano de estudos. Mostra como a glicólise quebra a glicose e o que acontece depois ==com oxigênio== (ciclo de Krebs e cadeia transportadora de elétrons) ou ==sem oxigênio== (ácido lático). Você não precisa de cada etapa: guarde a visão geral desta página."]),
     SORT(["Which stage is it?", "Qual é a etapa?"], [["Glycolysis", "Glicólise"], ["Krebs cycle", "Ciclo de Krebs"], ["Electron transport chain", "Cadeia de elétrons"]], [
       ["Happens in the cytoplasm", "Acontece no citoplasma", 0],
       ["Works without oxygen", "Funciona sem oxigênio", 0],
@@ -94,6 +100,9 @@ pages: [
       ["**Protein**: amino acids build tissue. Extras are **deaminated**: the nitrogen becomes ammonia, then ==urea== in the liver, which the kidneys excrete.", "**Proteína**: os aminoácidos constroem tecidos. O excesso é **desaminado**: o nitrogênio vira amônia e depois ==ureia== no fígado, que os rins eliminam."],
       ["Protein (g) ≈ nitrogen (g) × ==6.25==.", "Proteína (g) ≈ nitrogênio (g) × ==6,25==."]
     ),
+    VIDEO('I4lU4zQJQRk', 'Khan Academy', 15, ["How does the body adapt to starvation?", "Como o corpo se adapta ao jejum prolongado?"],
+      ["Follows the body's fuel stores through a long time without food, while it keeps blood glucose up. It answers two questions from this page: ==what ketones are== and ==why fatty acids can't become glucose==.",
+       "Acompanha os estoques de energia do corpo durante um longo período sem comer, enquanto ele mantém a glicose do sangue. Responde a duas perguntas desta página: ==o que são cetonas== e ==por que os ácidos graxos não viram glicose==."]),
     NUM(["A patient's daily intake contains 12 g of nitrogen. About how many grams of protein is that?", "A ingestão diária de um paciente tem 12 g de nitrogênio. Isso é cerca de quantos gramas de proteína?"], 75, 1, "g",
       ["12 × 6.25 = 75 g of protein.", "12 × 6,25 = 75 g de proteína."]),
     NOTE('warn', "In liver failure, ammonia is not turned into urea well and can cause confusion (hepatic encephalopathy). Modern practice does ==not== restrict protein for this. You will meet it again in Module 7.",

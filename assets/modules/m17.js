@@ -22,6 +22,9 @@ pages: [
     ),
     P("**NHMRC levels (intervention questions)**: ==I== systematic review of RCTs · ==II== RCT · ==III-1== pseudo-randomised trial · ==III-2== comparative study with concurrent controls (e.g. cohort, case-control) · ==III-3== comparative study without concurrent controls · ==IV== case series.",
       "**Níveis do NHMRC (perguntas de intervenção)**: ==I== revisão sistemática de ECRs · ==II== ECR · ==III-1== ensaio pseudorrandomizado · ==III-2== estudo comparativo com controles concomitantes (ex. coorte, caso-controle) · ==III-3== estudo comparativo sem controles concomitantes · ==IV== série de casos."),
+    VIDEO('zmXBbHDUgY4', 'Khan Academy', 5, ["Types of studies", "Tipos de estudo"],
+      ["Sal explains the difference between an ==experiment== (the researcher changes something) and an ==observational study== (the researcher only watches), and the types of observational study: ==retrospective, prospective== and sample surveys. Link each one to the table above.",
+       "O Sal explica a diferença entre um ==experimento== (o pesquisador muda algo) e um ==estudo observacional== (o pesquisador só observa), e os tipos de estudo observacional: ==retrospectivo, prospectivo== e pesquisas por amostragem. Ligue cada um à tabela acima."]),
     SORT(["Best design for the question?", "Melhor desenho para a pergunta?"], [["RCT", "ECR"], ["Cohort", "Coorte"], ["Case-control", "Caso-controle"], ["Cross-sectional", "Transversal"], ["Qualitative", "Qualitativo"]], [
       ["Does a new supplement reduce falls compared with usual care?", "Um novo suplemento reduz quedas comparado ao cuidado usual?", 0],
       ["What % of adults meet the vegetable guideline today?", "Que % dos adultos atinge hoje a recomendação de hortaliças?", 3],
@@ -63,6 +66,9 @@ pages: [
       ["**Absolute risk reduction (ARR)** = control risk − intervention risk. **NNT** = ==1 ÷ ARR==: how many people need treating for one to benefit.", "**Redução absoluta do risco (RAR)** = risco no controle − risco na intervenção. **NNT** = ==1 ÷ RAR==: quantas pessoas precisam ser tratadas para uma se beneficiar."],
       ["Statistically significant ≠ clinically important: always ask 'how big is the effect?'", "Estatisticamente significativo ≠ clinicamente importante: sempre pergunte 'qual o tamanho do efeito?'"]
     ),
+    VIDEO('hlM7zdf7zwU', 'Khan Academy', 12, ["Confidence intervals and margin of error", "Intervalos de confiança e margem de erro"],
+      ["It uses an election poll, not a diet study, but the idea is the same: a confidence interval is the ==range where the true value probably lies==. Then come back to this page: for RR or OR, a 95% CI that ==includes 1== is not significant.",
+       "Usa uma pesquisa eleitoral, não um estudo de dieta, mas a ideia é a mesma: o intervalo de confiança é a ==faixa onde o valor verdadeiro provavelmente está==. Depois volte a esta página: para RR ou OR, um IC 95% que ==inclui 1== não é significativo."]),
     NUM(["Falls: 10% in the control group, 6% with the intervention. What is the NNT?", "Quedas: 10% no grupo controle, 6% com a intervenção. Qual é o NNT?"], 25, 0, "",
       ["ARR = 10% − 6% = 4% = 0.04. NNT = 1 ÷ 0.04 = 25.", "RAR = 10% − 6% = 4% = 0,04. NNT = 1 ÷ 0,04 = 25."]),
     PICK(["RR 0.80 (95% CI 0.70–0.92) for diabetes with a diet program. This means", "RR 0,80 (IC 95% 0,70–0,92) para diabetes com um programa alimentar. Isso significa"],

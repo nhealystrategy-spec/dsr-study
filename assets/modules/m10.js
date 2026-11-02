@@ -25,6 +25,9 @@ pages: [
       [["25–29.9", "25–29,9"], "7–11.5 kg"],
       [["≥ 30", "≥ 30"], "5–9 kg"]
     ),
+    VIDEO('JAF8GeKZggM', 'Australian Government Department of Health', 1, ["Three steps to a healthy pregnancy", "Três passos para uma gestação saudável"],
+      ["A 1-minute government message: eat foods rich in ==iodine, folate, iron, protein, calcium, vitamin D and B12==, ==no alcohol==, limit high-fat and sugary foods, and stay active. It also says ==eating for two is a myth==, like this page.",
+       "Uma mensagem do governo em 1 minuto: comer alimentos ricos em ==iodo, folato, ferro, proteína, cálcio, vitamina D e B12==, ==nada de álcool==, limitar alimentos gordurosos e açucarados e fazer atividade física. Também diz que ==comer por dois é um mito==, como esta página."]),
     NUM(["The extra 1.4 MJ a day in the second trimester is about how many kcal? (1 kcal = 4.184 kJ)", "Os 1,4 MJ extras por dia no segundo trimestre são cerca de quantas kcal? (1 kcal = 4,184 kJ)"], 335, 10, "kcal",
       ["1400 kJ ÷ 4.184 ≈ 335 kcal — roughly a sandwich and a glass of milk, not a second meal.", "1400 kJ ÷ 4,184 ≈ 335 kcal — mais ou menos um sanduíche e um copo de leite, não uma segunda refeição."])
   ],

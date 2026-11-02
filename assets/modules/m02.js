@@ -49,6 +49,9 @@ pages: [
     ),
     NOTE('warn', "**Legumes** (beans, lentils, chickpeas) can count as a ==vegetable== serve ==or== a ==meat-and-alternatives== serve, but not both at the same time.",
       "As **{{leguminosas|legumes}}** (feijão, lentilha, grão-de-bico) podem contar como porção de ==hortaliça== ==ou== de ==carnes e alternativas==, mas não as duas ao mesmo tempo."),
+    VIDEO('7rgI5q-XnKg', 'Edith Cowan University', 2, ["Facts about the Australian Guide to Healthy Eating", "Fatos sobre o Guia Australiano de Alimentação Saudável"],
+      ["A 2-minute tour of the plate: the five food groups, why the segments are different sizes (==more grains and vegetables==; less meat, dairy and fruit) and foods to have only sometimes. It was made for teachers, so it is easy to follow.",
+       "Um passeio de 2 minutos pelo prato: os cinco grupos, por que as fatias têm tamanhos diferentes (==mais cereais e vegetais==; menos carnes, laticínios e frutas) e os alimentos para comer só de vez em quando. Foi feito para professores, então é fácil de acompanhar."]),
     SORT(["Which group? (or discretionary)", "Qual grupo? (ou discricionário)"],
       [["Vegetables", "Hortaliças"], ["Fruit", "Frutas"], ["Grains", "Cereais"], ["Meat & alternatives", "Carnes e alternativas"], ["Dairy & alternatives", "Laticínios e alternativas"], ["Discretionary", "Discricionário"]], [
       ["Brown rice", "Arroz integral", 2],

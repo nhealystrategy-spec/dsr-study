@@ -23,6 +23,9 @@ pages: [
     ),
     NOTE('aus', "DA's 2026 oral exam checklist recommends the **ADIME** structure for consultations and notes: ==Assessment, Diagnosis, Intervention, Monitoring and Evaluation==. It is the NCP written down.",
       "O checklist oral da DA de 2026 recomenda a estrutura **ADIME** para consultas e registros: ==Avaliação, Diagnóstico, Intervenção, Monitoramento e Avaliação==. É o PCN no papel."),
+    VIDEO('pAiS9xoU2uk', 'Department of Health, Tasmania', 4, ["The Malnutrition Screening Tool (MST) in action", "A Malnutrition Screening Tool (MST) na prática"],
+      ["A health worker asks a patient the two MST questions: ==weight lost without trying== and ==eating poorly because of a low appetite==. See how quick and simple screening is. You will score the MST yourself in Module 8.",
+       "Um profissional de saúde faz ao paciente as duas perguntas da MST: ==perdeu peso sem querer?== e ==está comendo mal por falta de apetite?== Veja como a triagem é rápida e simples. Você vai pontuar a MST no Módulo 8."]),
     ORDER(["Put the Nutrition Care Process in order", "Coloque o Processo de Cuidado em Nutrição em ordem"], [
       ["Screening identifies risk", "A triagem identifica o risco"],
       ["Nutrition assessment", "Avaliação nutricional"],

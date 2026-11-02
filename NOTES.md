@@ -11,5 +11,8 @@
   - HEAS long day care: menu (morning tea, lunch, afternoon tea) ≈ 50% of daily needs (not tied to "8 hours").
   - TIS Free Interpreting Service for private dietitians only covers listed council areas (plus some PHN programs).
   - Medicare GPCCMP (from 1 Jul 2025): 5 allied health services/year (10 for First Nations), ≥20 min each, report to GP after first and last service, plan reviewed within 18 months, GPMP/TCA valid until 30 Jun 2027.
-- Facts that change often, recheck before the exam: Australian Dietary Guidelines (draft consultation late 2026, final likely 2027), Medicare item rules, ASCIA, AuSPEN, Aged Care Quality Standards.
+- Videos added Nov 2026: 37 click-to-load videos (1–3 per module) from official Australian bodies, universities, Khan Academy and IDDSI; list and check dates in `assets/modules/videos.md`. New facts checked then:
+  - ASCIA 2026: adrenaline devices include autoinjectors (EpiPen, Jext; outer mid-thigh) and the neffy nasal spray (PBS from 1 Jul 2026); another dose after 5 min if no response.
+  - Kidney Health Australia: about 1 in 7 adults have signs of kidney disease (1 in 5 First Nations adults); the 2023 video still says 1 in 10.
+- Facts that change often, recheck before the exam (and run `node tools/check-modules.js --online` for the videos): Australian Dietary Guidelines (draft consultation late 2026, final likely 2027), Medicare item rules, ASCIA, AuSPEN, Aged Care Quality Standards.
 - After editing content run `node tools/check-modules.js`.

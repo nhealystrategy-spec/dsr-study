@@ -21,6 +21,9 @@ pages: [
       ["Healthy fats and oils: olive, canola, sunflower, peanut, soybean; avocado, nuts, seeds.", "Gorduras e óleos saudáveis: azeite, canola, girassol, amendoim, soja; abacate, oleaginosas, sementes."],
       ["Herbs and spices instead of salt.", "Ervas e especiarias no lugar do sal."]
     ),
+    VIDEO('2UMbE91HdpM', 'Heart Foundation', 2, ["Building blocks of a healthy heart", "Os blocos de um coração saudável"],
+      ["A short animation. More than half of Australian adults have ==3 or more risk factors== for heart disease, and many don't know it. See where a heart-healthy eating pattern fits with the other changes people can make.",
+       "Uma animação curta. Mais da metade dos adultos australianos tem ==3 ou mais fatores de risco== para doença cardíaca, e muitos não sabem. Veja onde o padrão alimentar saudável para o coração entra junto com as outras mudanças possíveis."]),
     SORT(["Heart-healthy pattern: how often?", "Padrão saudável para o coração: com que frequência?"], [["Base of the diet", "Base da dieta"], ["Smaller amounts", "Em menor quantidade"], ["Limit / avoid", "Limitar / evitar"]], [
       ["Lentils and chickpeas", "Lentilha e grão-de-bico", 0],
       ["Salmon or sardines", "Salmão ou sardinha", 0],
@@ -63,6 +66,9 @@ pages: [
       [["Under 400 mg sodium", "Menos de 400 mg de sódio"], ["A better everyday choice", "Uma escolha melhor para o dia a dia"]],
       [["Salt (g) = sodium (g) × 2.5", "Sal (g) = sódio (g) × 2,5"], ["e.g. 400 mg sodium = 1 g salt", "ex. 400 mg de sódio = 1 g de sal"]]
     ),
+    VIDEO('vimeo:1220142416', 'Queensland Health (NEMO)', 6, ["Tips to eat less salt", "Dicas para comer menos sal"],
+      ["Queensland Health dietitians made this video for patients: simple changes to eat less salt while keeping meals ==full of flavour==. Listen to how they explain it in plain words, and reuse that wording in your own counselling.",
+       "Nutricionistas da Queensland Health fizeram este vídeo para pacientes: mudanças simples para comer menos sal mantendo as refeições ==cheias de sabor==. Repare como explicam em palavras simples e use esse jeito de falar no seu próprio aconselhamento."]),
     NUM(["A frozen meal has 900 mg of sodium per serve. How many grams of salt is that?", "Uma refeição congelada tem 900 mg de sódio por porção. Quantos gramas de sal são?"], 2.25, 0.1, "g",
       ["900 mg × 2.5 = 2250 mg = 2.25 g salt — almost half the daily limit in one meal.", "900 mg × 2,5 = 2250 mg = 2,25 g de sal — quase metade do limite diário numa refeição."]),
     NOTE('warn', "Many 'salt substitutes' are ==potassium chloride==. They can be dangerous for people with kidney disease or on some blood pressure medicines (e.g. ACE inhibitors). Check before recommending.",
@@ -83,6 +89,9 @@ pages: [
       [["Triglycerides", "Triglicerídeos"], ["==88.57==", "==88,57=="], ["TG 200 mg/dL ≈ 2.3 mmol/L", "TG 200 mg/dL ≈ 2,3 mmol/L"]],
       [["Glucose", "Glicose"], ["==18==", "==18=="], ["126 mg/dL = 7.0 mmol/L", "126 mg/dL = 7,0 mmol/L"]]
     ),
+    VIDEO('Gb6pI2Grec4', 'Heart Foundation', 2, ["Cholesterol and heart disease", "Colesterol e doença cardíaca"],
+      ["Explains ==LDL== (it can stick to artery walls) and ==HDL== (it carries cholesterol back to the liver). High cholesterol usually has ==no symptoms==, so regular checks with the doctor matter.",
+       "Explica o ==LDL== (pode grudar nas paredes das artérias) e o ==HDL== (leva o colesterol de volta ao fígado). Colesterol alto geralmente ==não dá sintomas==, por isso os exames regulares com o médico são importantes."]),
     NUM(["A Brazilian report shows LDL 135 mg/dL. What is that in mmol/L? (1 decimal)", "Um laudo brasileiro mostra LDL 135 mg/dL. Quanto é em mmol/L? (1 casa decimal)"], 3.5, 0.1, "mmol/L",
       ["135 ÷ 38.67 ≈ 3.5 mmol/L.", "135 ÷ 38,67 ≈ 3,5 mmol/L."]),
     NOTE('tip', "High triglycerides respond best to ==less alcohol, fewer added sugars and refined carbohydrate, and weight loss==; high LDL responds to saturated fat swaps, soluble fibre and plant sterols.",

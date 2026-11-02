@@ -23,10 +23,13 @@ pages: [
       ["Phosphate ==additives== in processed foods (processed meats, cola drinks, processed cheese) are absorbed far more than natural phosphate.", "Os ==aditivos== de fosfato dos alimentos processados (embutidos, refrigerantes de cola, queijo processado) são muito mais absorvidos que o fosfato natural."],
       ["Fluid: drink to thirst unless the team sets a limit (oedema, dialysis).", "Líquidos: beber conforme a sede, a não ser que a equipe defina um limite (edema, diálise)."]
     ),
-    NOTE('warn', "Most 'salt substitutes' contain ==potassium chloride==: dangerous in CKD with high potassium.", "A maioria dos 'substitutos do sal' contém ==cloreto de potássio==: perigoso na DRC com potássio alto.")
+    NOTE('warn', "Most 'salt substitutes' contain ==potassium chloride==: dangerous in CKD with high potassium.", "A maioria dos 'substitutos do sal' contém ==cloreto de potássio==: perigoso na DRC com potássio alto."),
+    VIDEO('0S_siSdD0MA', 'Kidney Health Australia', 2, ["Understanding kidney disease", "Entendendo a doença renal"],
+      ["What kidneys do and who is at risk: diabetes, high blood pressure, smoking, age over 60 and more. People can lose ==up to 90% of kidney function== before they feel sick. The video (2023) says 1 in 10 Australians; Kidney Health Australia's ==newer figure is about 1 in 7 adults== (1 in 5 First Nations adults).",
+       "O que os rins fazem e quem tem risco: diabetes, pressão alta, tabagismo, idade acima de 60 anos e outros. A pessoa pode perder ==até 90% da função renal== antes de se sentir mal. O vídeo (2023) diz 1 em cada 10 australianos; o ==número mais novo da Kidney Health Australia é cerca de 1 em cada 7 adultos== (1 em cada 5 entre adultos aborígenes e ilhéus do Estreito de Torres)."])
   ],
   key: [["Stage by **eGFR**: 3a 45–59, 3b 30–44, 4 15–29, 5 < 15", "Estágio pela **TFGe**: 3a 45–59, 3b 30–44, 4 15–29, 5 < 15"], ["Salt < **5 g/day** for everyone", "Sal < **5 g/dia** para todos"], ["Restrict potassium/phosphate **only if blood levels are high**", "Restringir potássio/fosfato **só se o sangue estiver alto**"], ["Avoid high protein before dialysis; prevent malnutrition", "Evitar excesso de proteína antes da diálise; prevenir desnutrição"]],
-  src: ["https://kidney.org.au/your-kidneys/living-with-kidney-disease/health-and-wellbeing/diet-nutrition/"]
+  src: ["https://kidney.org.au/your-kidneys/living-with-kidney-disease/health-and-wellbeing/diet-nutrition/", "https://kidney.org.au/your-kidneys/what-is-kidney-disease/"]
 },
 {
   t: ["Dialysis and potassium", "Diálise e potássio"],
@@ -37,6 +40,9 @@ pages: [
       ["Lower the potassium in potatoes and vegetables by ==boiling them in plenty of water and draining==.", "Reduza o potássio de batatas e hortaliças ==cozinhando em bastante água e escorrendo==."],
       ["==Phosphate binders== are taken ==with meals== to work.", "Os ==quelantes de fósforo== devem ser tomados ==junto com as refeições== para funcionar."]
     ),
+    VIDEO('vimeo:1221294310', 'Queensland Health (NEMO)', 8, ["What to eat when your potassium is high", "O que comer quando o potássio está alto"],
+      ["Patient advice from Queensland Health's kidney dietitians. Notice how they explain high-potassium foods in plain words. You can borrow that wording for the oral exam.",
+       "Orientações para pacientes feitas pelos nutricionistas de nefrologia da Queensland Health. Repare como explicam os alimentos ricos em potássio em palavras simples. Você pode usar esse jeito de falar no exame oral."]),
     SORT(["High or low potassium?", "Rico ou pobre em potássio?"], [["Higher potassium", "Mais potássio"], ["Lower potassium", "Menos potássio"]], [
       ["Banana", "Banana", 0],
       ["Apple", "Maçã", 1],
@@ -112,6 +118,9 @@ pages: [
     ),
     P("Test it: the ==flow test== (10 mL syringe, 10 seconds) for drinks; ==fork pressure, fork drip and spoon tilt tests== for foods.",
       "Teste: o ==teste de fluxo== (seringa de 10 mL, 10 segundos) para bebidas; ==testes de pressão do garfo, gotejamento no garfo e inclinação da colher== para alimentos."),
+    VIDEO('9tRoJ31Mz30', 'IDDSI', 6, ["IDDSI 101: the basics", "IDDSI 101: o básico"],
+      ["The official IDDSI basics in about 5 minutes: what IDDSI is and why one ==international set of levels and names== keeps people with swallowing problems safe. It was made in the USA, but the levels are the same in Australia.",
+       "O básico oficial do IDDSI em cerca de 5 minutos: o que é o IDDSI e por que ==um só conjunto internacional de níveis e nomes== protege quem tem dificuldade para engolir. Foi feito nos EUA, mas os níveis são os mesmos na Austrália."]),
     ORDER(["Order the food textures from smoothest to most solid", "Ordene as texturas de alimento da mais lisa à mais sólida"], [
       ["Liquidised (3)", "Liquidificado (3)"],
       ["Pureed (4)", "Pastoso (4)"],

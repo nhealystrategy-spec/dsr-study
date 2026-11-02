@@ -88,6 +88,9 @@ pages: [
     ),
     NOTE('warn', "Unconscious or unable to swallow? ==Nothing by mouth.== Call an ambulance (000) and give glucagon if available.",
       "Inconsciente ou sem conseguir engolir? ==Nada pela boca.== Chame a ambulância (000) e aplique glucagon se houver."),
+    VIDEO('eipo30sl5HM', 'Diabetes Australia', 2, ["People with type 2 diabetes can have hypos too", "Quem tem diabetes tipo 2 também pode ter hipo"],
+      ["Lou has type 2 diabetes and uses insulin. A hypo came on after ==too much insulin plus a walk==, and Lou waited to treat it out of embarrassment, so it got worse. People on ==insulin or sulfonylureas== can have hypos: treat them straight away.",
+       "Lou tem diabetes tipo 2 e usa insulina. A hipo veio depois de ==insulina demais e uma caminhada==, e Lou esperou para tratar por vergonha, então piorou. Quem usa ==insulina ou sulfonilureias== pode ter hipo: trate na hora."]),
     ORDER(["Put the hypo treatment in order", "Coloque o tratamento da hipo em ordem"], [
       ["Check: glucose is 3.4 mmol/L", "Conferir: glicemia 3,4 mmol/L"],
       ["Have 150 mL regular soft drink", "Tomar 150 mL de refrigerante comum"],
@@ -111,6 +114,9 @@ pages: [
     ),
     NOTE('tip', "Remission of type 2 diabetes is possible for some people with substantial weight loss, for example with supervised meal-replacement programs. Weight loss of 5–10% already improves glucose.",
       "A remissão do diabetes tipo 2 é possível para algumas pessoas com perda de peso importante, por exemplo com programas supervisionados de substitutos de refeição. Perder 5–10% do peso já melhora a glicemia."),
+    VIDEO('1DH29uMMaNo', 'Diabetes Australia', 2, ["Why you need a sick day plan", "Por que ter um plano para dias de doença"],
+      ["Illness such as flu or gastro can push glucose ==too high or too low==. Make a written plan with the GP or diabetes educator: check glucose more often, and ==check ketones== with type 1 diabetes or with ==some type 2 medicines== (such as the SGLT2 inhibitors on this page).",
+       "Doenças como gripe ou gastroenterite podem deixar a glicose ==alta ou baixa demais==. Faça um plano por escrito com o GP ou o educador em diabetes: medir a glicose mais vezes e ==medir cetonas== no diabetes tipo 1 ou com ==alguns remédios para o tipo 2== (como os inibidores de SGLT2 desta página)."]),
     PICK(["A client on empagliflozin wants to start a keto diet. Your main concern is", "Um paciente em uso de empagliflozina quer começar uma dieta cetogênica. Sua principal preocupação é"],
       [["ketoacidosis risk", "risco de cetoacidose"], ["vitamin C deficiency", "deficiência de vitamina C"], ["high potassium", "potássio alto"], ["low sodium", "sódio baixo"]], 0,
       ["SGLT2 inhibitors plus very low carbohydrate intake can cause (euglycaemic) diabetic ketoacidosis.", "Inibidores de SGLT2 com ingestão muito baixa de carboidrato podem causar cetoacidose diabética (euglicêmica)."])

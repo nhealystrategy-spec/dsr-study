@@ -18,6 +18,9 @@ pages: [
       ["Higher-risk groups: ==low-income households==, single parents, people experiencing homelessness, some migrants and refugees, people with disability, and ==Aboriginal and Torres Strait Islander people in remote communities==, where food costs much more and choice is limited.", "Grupos de maior risco: ==famílias de baixa renda==, pais e mães solo, pessoas em situação de rua, alguns migrantes e refugiados, pessoas com deficiência e ==povos aborígenes e das Ilhas do Estreito de Torres em comunidades remotas==, onde a comida custa bem mais e há pouca escolha."],
       ["==Upstream== actions change the conditions for everyone (policy, prices, environments); ==downstream== actions help individuals (counselling).", "Ações ==a montante (upstream)== mudam as condições para todos (políticas, preços, ambientes); ações ==a jusante (downstream)== ajudam indivíduos (aconselhamento)."]
     ),
+    VIDEO('_gNmnbt3x8E', 'VicHealth', 11, ["Fair Foundations: a framework for health equity", "Fair Foundations: um modelo para a equidade em saúde"],
+      ["VicHealth's framework, based on the WHO Commission on the Social Determinants of Health. One key idea: the ==social determinants of health== are the conditions in which people are born, grow, live, work, play and age; the social determinants of ==health inequities== are the social processes that share those conditions out unequally.",
+       "O modelo da VicHealth, baseado na Comissão da OMS sobre Determinantes Sociais da Saúde. Uma ideia-chave: os ==determinantes sociais da saúde== são as condições em que as pessoas nascem, crescem, vivem, trabalham, brincam e envelhecem; os determinantes sociais das ==iniquidades em saúde== são os processos sociais que distribuem essas condições de forma desigual."]),
     SORT(["Upstream (population) or downstream (individual)?", "A montante (população) ou a jusante (indivíduo)?"], [["Upstream", "A montante"], ["Downstream", "A jusante"]], [
       ["Subsidising fresh food in remote community stores", "Subsidiar comida fresca nos mercados de comunidades remotas", 0],
       ["One-to-one counselling for a client with diabetes", "Aconselhamento individual para um paciente com diabetes", 1],
@@ -43,6 +46,9 @@ pages: [
       ["**Develop personal skills**: education, cooking and label-reading skills.", "**Desenvolver habilidades pessoais**: educação, culinária, leitura de rótulos."],
       ["**Reorient health services**: towards prevention and primary care.", "**Reorientar os serviços de saúde**: para prevenção e atenção primária."]
     ),
+    VIDEO('y9THQTEqMaU', 'VicHealth', 4, ["Understanding health promotion", "Entendendo a promoção da saúde"],
+      ["A short introduction from VicHealth, Victoria's health promotion foundation. The main idea: health promotion is ==more than asking people to change their lifestyle==. It also changes the conditions around them, which is what the Ottawa Charter action areas do.",
+       "Uma introdução curta da VicHealth, a fundação de promoção da saúde de Victoria. A ideia principal: promover saúde é ==mais do que pedir que as pessoas mudem o estilo de vida==. Também muda as condições ao redor delas, que é o que as áreas de ação da Carta de Ottawa fazem."]),
     SORT(["Which Ottawa Charter area?", "Qual campo da Carta de Ottawa?"], [["Public policy", "Políticas públicas"], ["Supportive environments", "Ambientes favoráveis"], ["Community action", "Ação comunitária"], ["Personal skills", "Habilidades pessoais"], ["Reorient services", "Reorientar serviços"]], [
       ["A state law limiting sugary drinks in school canteens", "Uma lei estadual que limita bebidas açucaradas nas cantinas", 0],
       ["Free water stations and fruit at the workplace", "Bebedouros e fruta grátis no local de trabalho", 1],

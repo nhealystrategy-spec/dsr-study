@@ -40,6 +40,9 @@ pages: [
     ),
     NOTE('br', "In Brazil you register with the CRN and follow the CFN Code of Ethics. In Australia the closest equivalent is ==APD credential + DA Code of Conduct==. Anyone can call themselves a 'nutritionist'; APD is the recognised standard.",
       "No Brasil você se registra no CRN e segue o Código de Ética do CFN. Na Austrália, o mais próximo é ==credencial APD + Código de Conduta da DA==. Qualquer pessoa pode se chamar 'nutritionist'; o APD é o padrão reconhecido."),
+    VIDEO('6gMrHNJ33w8', 'Dietitians Australia', 1, ["Dietitians improve lives", "Nutricionistas melhoram vidas"],
+      ["Dietitians Australia's own short video. It says ==APDs are the gold standard== in Australia: the only nutrition credential recognised by ==Medicare, DVA and many private health funds==.",
+       "Vídeo curto da própria Dietitians Australia. Diz que os ==APDs são o padrão-ouro== na Austrália: a única credencial de nutrição reconhecida pelo ==Medicare, DVA e muitos planos de saúde privados==."]),
     PICK(["Which credential lets a dietitian provide Medicare-subsidised services?", "Qual credencial permite ao nutricionista oferecer atendimentos subsidiados pelo Medicare?"],
       [["Accredited Practising Dietitian (APD)", "Accredited Practising Dietitian (APD)"], ["AHPRA registration", "Registro na AHPRA"], ["A nutritionist certificate", "Um certificado de 'nutritionist'"], ["CRN registration from Brazil", "Registro no CRN do Brasil"]], 0,
       ["Medicare, DVA, NDIS and insurers recognise the APD credential. Dietetics is not an AHPRA profession.", "Medicare, DVA, NDIS e planos reconhecem a credencial APD. A nutrição não é profissão da AHPRA."])
@@ -62,6 +65,12 @@ pages: [
       ["Ask about ==traditional foods== (bush tucker, fishing, hunting), local store access and cost; build advice around them.", "Pergunte sobre ==comidas tradicionais== (bush tucker, pesca, caça), acesso e preço no mercadinho local; construa a orientação em torno delas."],
       ["Use respectful terms: 'Aboriginal and Torres Strait Islander people' or 'First Nations people' (ask preference); ==avoid 'ATSI'==.", "Use termos respeitosos: 'Aboriginal and Torres Strait Islander people' ou 'First Nations people' (pergunte a preferência); ==evite 'ATSI'==."]
     ),
+    VIDEO('7njabCKtUM4', 'Monash University', 5, ["Cultural safety, part A: Aunty Di at a new clinic", "Segurança cultural, parte A: Aunty Di numa clínica nova"],
+      ["Aunty Di goes to a mainstream clinic for the first time, about stomach pains. Watch the front desk and the consultation closely: ==what could make Aunty Di feel judged or unsafe?==",
+       "Aunty Di vai pela primeira vez a uma clínica comum, por causa de dores de estômago. Observe com atenção a recepção e a consulta: ==o que pode causar em Aunty Di a sensação de ser julgada ou de falta de segurança?=="]),
+    VIDEO('1U5okHcLZAE', 'Monash University', 5, ["Cultural safety, part B: Aunty Di at the Aboriginal Medical Service", "Segurança cultural, parte B: Aunty Di no Aboriginal Medical Service"],
+      ["Now Aunty Di visits the Aboriginal Medical Service. Compare it with part A: how do the staff ==build trust and make Aunty Di feel welcome==? That difference is cultural safety, judged by the person receiving care.",
+       "Agora Aunty Di vai ao Aboriginal Medical Service. Compare com a parte A: como a equipe ==cria confiança e acolhe Aunty Di==? Essa diferença é segurança cultural, avaliada por quem recebe o cuidado."]),
     REVEAL(["Uncle Ray (Aboriginal man, CKD) says he's had 'too many doctors telling me what not to eat'. How do you start?", "Uncle Ray (homem aborígene, DRC) diz que já teve 'médicos demais dizendo o que não comer'. Como você começa?"],
       ["Introduce yourself and your role, ==ask permission==, acknowledge his experience ('That sounds frustrating'), let the Aboriginal Health Practitioner help lead, ask what ==he== wants from today and about family, community and the foods he enjoys (fish, bush tucker, store food). Build ==one or two small changes== together, not a list of bans.",
        "Apresente-se e explique sua função, ==peça permissão==, reconheça a experiência dele ('Isso parece frustrante'), deixe o Aboriginal Health Practitioner ajudar a conduzir, pergunte o que ==ele== quer da consulta e sobre família, comunidade e as comidas de que gosta (peixe, bush tucker, comida do mercadinho). Construam juntos ==uma ou duas mudanças pequenas==, não uma lista de proibições."]),

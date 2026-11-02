@@ -27,6 +27,9 @@ const NOTE = (kind, en, pt) => ({k: 'note', kind, t: [en, pt]});   // kind: exam
 const TABLE = (head, ...rows) => ({k: 'table', head, rows});       // cells: 'text' or [en, pt]
 const FLOW = (...steps) => ({k: 'flow', steps});                   // step: [[en, pt] title, [en, pt] detail]
 const FIG = (svg, cap) => ({k: 'fig', svg, cap});
+// Click-to-load video. id: YouTube id, or 'vimeo:123456' / 'vimeo:123456/hash'; by: channel; mins: length; start: seconds (optional).
+// Check every id with oEmbed before adding it, and list it in assets/modules/videos.md.
+const VIDEO = (id, by, mins, title, why, start) => ({k: 'video', id, by, mins, title, why, start});
 // Interactive blocks (instant feedback)
 const SORT = (q, buckets, items) => ({k: 'sort', q, buckets, items}); // items: [en, pt, bucketIndex]
 const ORDER = (q, items) => ({k: 'order', q, items});                 // items listed in the correct order

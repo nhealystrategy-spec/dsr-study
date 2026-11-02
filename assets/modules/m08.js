@@ -52,6 +52,9 @@ pages: [
       [["Yes: 0.5–5 kg / 6–10 kg / 11–15 kg / > 15 kg", "Sim: 0,5–5 kg / 6–10 kg / 11–15 kg / > 15 kg"], "1 / 2 / 3 / 4"],
       [["Eating poorly because of a decreased appetite? Yes", "Comendo mal por falta de apetite? Sim"], "1"]
     ),
+    VIDEO('vimeo:523587289', 'Queensland Health (Metro North)', 15, ["How to do a Subjective Global Assessment (SGA)", "Como fazer a Subjective Global Assessment (SGA)"],
+      ["Queensland Health's SGA training video, from your study planner. As you watch, match each part to this page: the ==history== (weight, intake, symptoms, function) and the ==physical exam== (fat, muscle, oedema). Then rate the patient ==A, B or C==. Five practice cases are on the Queensland Health page in the sources below.",
+       "O vídeo de treinamento da SGA da Queensland Health, do seu plano de estudos. Enquanto assiste, ligue cada parte a esta página: a ==história== (peso, ingestão, sintomas, função) e o ==exame físico== (gordura, músculo, edema). Depois classifique o paciente em ==A, B ou C==. Há cinco casos para praticar na página da Queensland Health nas fontes abaixo."]),
     NUM(["A patient lost 7 kg without trying and is eating poorly because of a low appetite. What is the MST score?", "Um paciente perdeu 7 kg sem querer e está comendo mal por falta de apetite. Qual é o escore MST?"], 3, 0, "",
       ["6–10 kg = 2 points, poor appetite = 1 point → 3: at risk, refer for full assessment.", "6–10 kg = 2 pontos, falta de apetite = 1 ponto → 3: em risco, encaminhar para avaliação completa."]),
     NOTE('tip', "SGA physical exam: look for ==fat loss== (around the eyes, triceps, ribs) and ==muscle wasting== (temples, collarbones, shoulders, shoulder blades, thighs), and oedema.",
@@ -71,6 +74,9 @@ pages: [
       [["Eggs, nut butters, yoghurt", "Ovos, pastas de oleaginosas, iogurte"], ["Extra egg in scrambled eggs; peanut butter on toast", "Ovo extra nos ovos mexidos; pasta de amendoim na torrada"]],
       [["Nourishing drinks", "Bebidas nutritivas"], ["Milkshakes, smoothies, milky coffee between meals", "Vitaminas, smoothies, café com leite entre as refeições"]]
     ),
+    VIDEO('DNXjN0HsA7I', 'Queensland Health (Princess Alexandra Hospital)', 9, ["High protein, high energy: easy ways to gain weight (part 1)", "Alta proteína e alta energia: jeitos fáceis de ganhar peso (parte 1)"],
+      ["Made by Queensland Health dietitians to go with the NEMO high protein high energy handout. It shows ==food-first== ideas: adding protein and energy to everyday meals and snacks, plus tips for a poor appetite or nausea. Part 2 is on YouTube too.",
+       "Feito por nutricionistas da Queensland Health para acompanhar o folheto NEMO de alta proteína e alta energia. Mostra ideias de ==food-first== (comida em primeiro lugar): colocar proteína e energia nas refeições e lanches do dia a dia, e dicas para falta de apetite ou náusea. A parte 2 também está no YouTube."]),
     ORDER(["Put the nutrition support ladder in order (least to most invasive)", "Coloque a escada de suporte nutricional em ordem (do menos ao mais invasivo)"], [
       ["High energy, high protein food and fortification", "Comida hipercalórica e hiperproteica e enriquecimento"],
       ["Nourishing drinks and snacks", "Bebidas e lanches nutritivos"],
